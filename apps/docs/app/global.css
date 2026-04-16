@@ -114,6 +114,57 @@
   width: 100%;
 }
 
+/* Syntax highlighting — rehype-pretty-code (Shiki) */
+pre[data-language] {
+  padding: 1rem;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.6;
+  background: rgba(19, 16, 13, 0.75);
+  border: 1px solid var(--color-rule);
+  border-radius: 0.5rem;
+  margin-top: 1.25rem;
+}
+pre[data-language] code {
+  display: block;
+  color: inherit;
+  background: transparent;
+  padding: 0;
+}
+code[data-line-numbers] > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  width: 1.5rem;
+  margin-right: 1rem;
+  text-align: right;
+  color: var(--color-muted);
+}
+[data-highlighted-line] {
+  background: rgba(245, 165, 36, 0.08);
+  border-left: 2px solid var(--color-brand);
+  padding-left: calc(1rem - 2px);
+}
+code[data-rehype-pretty-code-figure] {
+  color: var(--color-brand);
+}
+figure[data-rehype-pretty-code-figure] figcaption[data-rehype-pretty-code-title] {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-muted);
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-rule);
+  border-bottom: 0;
+  border-radius: 0.5rem 0.5rem 0 0;
+  background: var(--color-ink-2);
+}
+figure[data-rehype-pretty-code-figure]:has(figcaption) pre[data-language] {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  margin-top: 0;
+}
+
 @keyframes ashlr-pulse {
   0%, 100% { box-shadow: 0 0 0 0 rgba(245, 165, 36, 0.5); }
   50% { box-shadow: 0 0 0 6px rgba(245, 165, 36, 0); }

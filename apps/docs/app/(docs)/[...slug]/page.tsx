@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { compileMDX } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
+import rehypePrettyCode from "rehype-pretty-code";
 import { listAllDocs, type DocEntry } from "@/lib/docs-fs";
 
 export async function generateStaticParams() {
@@ -54,6 +55,19 @@ export default async function Page({
     options: {
       mdxOptions: {
         remarkPlugins: [remarkGfm],
+        rehypePlugins: [
+          [
+            rehypePrettyCode,
+            {
+              theme: {
+                dark: "github-dark-dimmed",
+                light: "github-dark-dimmed",
+              },
+              keepBackground: false,
+              defaultLang: { block: "txt", inline: "txt" },
+            },
+          ],
+        ],
       },
       parseFrontmatter: false,
     },

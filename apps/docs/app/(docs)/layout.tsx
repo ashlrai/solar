@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SearchCommand } from "@/components/SearchCommand";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -10,12 +11,35 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <span className="type-smallcaps text-muted">Solar</span>
         </Link>
 
+        <div className="mt-6">
+          <SearchCommand />
+        </div>
+
         <nav className="mt-8 space-y-6 text-sm">
           <Group title="Open data">
             <NavLink href="/ahj-handbook">AHJ handbook</NavLink>
             <NavLink href="/glossary">Glossary</NavLink>
           </Group>
+          <Group title="Build">
+            <NavLink href="/getting-started/quickstart-typescript">Quickstart · TS</NavLink>
+            <NavLink href="/getting-started/quickstart-curl">Quickstart · curl</NavLink>
+            <NavLink href="/getting-started/authentication">Authentication</NavLink>
+          </Group>
+          <Group title="API">
+            <NavLink href="/api/permit-package">/api/permit-package</NavLink>
+            <NavLink href="/api/plan-check">/api/plan-check</NavLink>
+            <NavLink href="/api/errors">Errors</NavLink>
+            <NavLink href="/api/rate-limits">Rate limits</NavLink>
+          </Group>
+          <Group title="Concepts">
+            <NavLink href="/concepts/ahj-knowledge-graph">AHJ knowledge graph</NavLink>
+            <NavLink href="/concepts/approval-probability">Approval probability</NavLink>
+            <NavLink href="/concepts/compliance-engine">Compliance engine</NavLink>
+            <NavLink href="/concepts/agent-architecture">Agent architecture</NavLink>
+            <NavLink href="/concepts/multi-provider-routing">Provider routing</NavLink>
+          </Group>
           <Group title="Project">
+            <NavLink href="/contributing">Contributing</NavLink>
             <NavLink href="https://github.com/ashlrai/solar">GitHub ↗</NavLink>
             <NavLink href="https://www.npmjs.com/package/@ashlrai/ahj">@ashlrai/ahj ↗</NavLink>
             <NavLink href="https://ashlr.ai">ashlr.ai ↗</NavLink>
@@ -23,7 +47,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </nav>
       </aside>
 
-      <div className="min-w-0 flex-1">{children}</div>
+      <div className="min-w-0 flex-1">
+        <div className="flex items-center justify-end border-b border-rule px-6 py-3 md:hidden">
+          <SearchCommand />
+        </div>
+        {children}
+      </div>
     </div>
   );
 }
