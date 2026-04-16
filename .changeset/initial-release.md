@@ -2,6 +2,7 @@
 "@ashlrai/ahj": minor
 "@ashlrai/glossary": minor
 "@ashlrai/compliance-spec": minor
+"@ashlrai/create-ahj": minor
 ---
 
 Initial release (0.1.0) of the three open Ashlr Solar packages.

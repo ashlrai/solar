@@ -1,0 +1,31 @@
+---
+title: "Ashlr vs. Aurora's permit pack"
+description: "Aurora ships PDF docs from the design. Ashlr evaluates the AHJ and predicts approval. They're complements, not competitors."
+---
+
+Aurora is the dominant solar design tool. Their permit pack generates a PDF
+bundle from the design. It's document output, not submission automation — no
+AHJ rule evaluation, no approval prediction, no plan-check loop.
+
+## At a glance
+
+| Attribute | Ashlr | Aurora permit pack |
+|---|---|---|
+| What it does | AHJ classification, rule eval, approval score, submission, plan-check reply | Design + PDF doc bundle |
+| Pricing | $199 / permit or $299 / seat | $150–350 / user / month (design bundle) |
+| AHJ-specific rule checks | Deterministic + LLM judgment per AHJ | Generic NEC / IRC only |
+| Approval probability | Calibrated score | None |
+| Relationship | Integrates with Aurora via API + webhook | — |
+
+## We're not a design tool
+
+Aurora stays your design source of truth. Our [Aurora integration](/integrations/aurora)
+fires when you mark a design final; we pull it via the Aurora API, run our
+pipeline, and write the permit package back into your Ashlr org.
+
+## Net effect
+
+Aurora handles design quality + customer-facing proposals (their strength).
+Ashlr handles AHJ evaluation + permit assembly + plan-check loop (theirs by
+omission). Together, the time from "homeowner signs" to "permit submitted"
+collapses from weeks to a single afternoon.

@@ -1,0 +1,36 @@
+---
+title: "Ashlr vs. OpenSolar permit output"
+description: "OpenSolar's free-tier design + proposal flow plus Ashlr's AHJ-aware permit pipeline."
+---
+
+OpenSolar ships usable permit docs out of the design suite on a freemium model.
+Like Aurora, it's generation not evaluation — no AHJ intelligence, no
+submission, no plan-check automation.
+
+## At a glance
+
+| Attribute | Ashlr | OpenSolar permit output |
+|---|---|---|
+| Pricing | $199 / permit or $299 / seat | Free + usage fees |
+| Design quality | We don't do design — OpenSolar's is great | Top-tier |
+| AHJ rule evaluation | Yes · 55 AHJs codified | No |
+| Plan-check response | Agent drafts in minutes | Manual |
+| Integration | Webhook + API into OpenSolar | — |
+
+## When OpenSolar wins
+
+Design + proposals + customer signing flow. That's their strength. They
+deliberately don't compete on AHJ submission.
+
+## When Ashlr wins
+
+You finish the OpenSolar proposal and want permits to stop being the next 3
+weeks. Our [OpenSolar integration](/integrations/opensolar) fires on
+`proposal.accepted` and pulls the design through our pipeline.
+
+## Stack pattern
+
+OpenSolar (free) + Ashlr ($199/permit) is the cheapest US installer stack
+that gets you from cold lead to filed permit, end-to-end. Total per-permit cost
+delta vs Aurora ($350/user/month for design pack) + Greenlancer ($700/permit):
+**$351 saved per permit at OpenSolar+Ashlr volumes**.

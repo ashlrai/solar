@@ -1,0 +1,46 @@
+---
+title: "Ashlr vs. Greenlancer"
+description: "Per-permit pricing, turnaround, AHJ coverage, predictive signals, and where each one wins."
+---
+
+Greenlancer is the incumbent permit-expediter service. You upload a design;
+they run it through human PEs and permit runners, charging per-permit. Mature,
+expensive, variable turnaround.
+
+## At a glance
+
+| Attribute | Ashlr | Greenlancer |
+|---|---|---|
+| Pricing | $199 / residential permit (flat) | $350–1,200 / permit |
+| Turnaround | Minutes to assembled package | 5–15 business days |
+| AHJ coverage | 55 codified · 30/90/180-day re-verification | US-wide (humans) |
+| Approval probability | Calibrated score per project | No predictive signal |
+| Plan-check response | Agent drafts in minutes, PE reviews | Human drafts, charged per revision |
+| API / webhooks | Full public API, webhook intake | Email + web form |
+| PE letter | Draft generated, PE stamps | Bundled (priced in) |
+
+## When Greenlancer wins
+
+A brand-new installer with no PE relationship needs full outsourcing. Or an
+extremely unusual jurisdiction that isn't in our knowledge graph yet (we add one
+a week — request via [GitHub](https://github.com/ashlrai/solar/issues/new?template=new-ahj.yml)).
+
+## When Ashlr wins
+
+You're processing 20+ permits/month in covered AHJs. You already have a PE.
+You want predictive approval scores and fast turnaround instead of a human
+queue.
+
+## Math
+
+At 50 permits/month:
+
+| | Ashlr | Greenlancer |
+|---|---|---|
+| Per permit | $199 | $700 (midpoint) |
+| Monthly | $9,950 | $35,000 |
+| Annual | $119,400 | $420,000 |
+| Annual savings | — | **$300,600** |
+
+Even at the bottom of Greenlancer's range ($350/permit), Ashlr saves $90k/year
+at the same volume.
