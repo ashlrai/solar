@@ -1,0 +1,26 @@
+{
+  "slug": "az-scottsdale",
+  "name": "City of Scottsdale",
+  "state": "AZ",
+  "county": "Maricopa",
+  "city": "Scottsdale",
+  "population": 242000,
+  "contacts": [{ "department": "Planning & Development", "portal_url": "https://www.scottsdaleaz.gov" }],
+  "submission_channels": ["online_portal", "solarapp_plus"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "module_datasheet", "inverter_datasheet"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 175 }],
+  "rules": [
+    {
+      "id": "az-sco-001",
+      "permit_type": "residential_pv",
+      "category": "interconnection",
+      "description": "APS or SRP interconnection based on service address.",
+      "severity": "blocking",
+      "source_url": "https://www.scottsdaleaz.gov",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 3, "last_updated": "2026-04-14", "source": "SolarAPP+ coverage" }],
+  "solarapp_plus_eligible": true,
+  "last_verified": "2026-04-14"
+}

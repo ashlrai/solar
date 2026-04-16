@@ -1,0 +1,26 @@
+{
+  "slug": "ca-anaheim",
+  "name": "City of Anaheim",
+  "state": "CA",
+  "county": "Orange",
+  "city": "Anaheim",
+  "population": 346000,
+  "contacts": [{ "department": "Planning & Building", "portal_url": "https://www.anaheim.net/1167/Permits-Inspections" }],
+  "submission_channels": ["online_portal", "solarapp_plus"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "module_datasheet", "inverter_datasheet", "racking_datasheet"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 255 }],
+  "rules": [
+    {
+      "id": "ca-ana-001",
+      "permit_type": "residential_pv",
+      "category": "interconnection",
+      "description": "Anaheim Public Utilities (municipal) interconnection — separate track from SCE service areas.",
+      "severity": "blocking",
+      "source_url": "https://www.anaheim.net/Utilities",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 4, "last_updated": "2026-04-14", "source": "SolarAPP+ coverage" }],
+  "solarapp_plus_eligible": true,
+  "last_verified": "2026-04-14"
+}

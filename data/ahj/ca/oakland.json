@@ -1,0 +1,26 @@
+{
+  "slug": "ca-oakland",
+  "name": "City of Oakland",
+  "state": "CA",
+  "county": "Alameda",
+  "city": "Oakland",
+  "population": 440000,
+  "contacts": [{ "department": "Oakland Planning & Building Department", "portal_url": "https://www.oaklandca.gov/topics/building-permits" }],
+  "submission_channels": ["online_portal", "solarapp_plus"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "module_datasheet", "inverter_datasheet", "racking_datasheet"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 290 }],
+  "rules": [
+    {
+      "id": "ca-oak-001",
+      "permit_type": "residential_pv",
+      "category": "electrical",
+      "description": "NEC 690.12 rapid shutdown; PG&E interconnection parallel.",
+      "severity": "blocking",
+      "source_url": "https://www.oaklandca.gov",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 5, "last_updated": "2026-04-14", "source": "SolarAPP+ coverage" }],
+  "solarapp_plus_eligible": true,
+  "last_verified": "2026-04-14"
+}

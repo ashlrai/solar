@@ -1,0 +1,26 @@
+{
+  "slug": "fl-tampa",
+  "name": "City of Tampa",
+  "state": "FL",
+  "county": "Hillsborough",
+  "city": "Tampa",
+  "population": 404000,
+  "contacts": [{ "department": "Construction Services", "portal_url": "https://www.tampa.gov/construction-services" }],
+  "submission_channels": ["online_portal"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "module_datasheet", "inverter_datasheet", "structural_letter", "wind_load_calculations"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 210 }],
+  "rules": [
+    {
+      "id": "fl-tpa-001",
+      "permit_type": "residential_pv",
+      "category": "structural",
+      "description": "FL Building Code wind-load design with Tampa coastal exposure categories; Category 1 for near-coast properties.",
+      "severity": "blocking",
+      "source_url": "https://www.tampa.gov",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 12, "last_updated": "2026-04-14", "source": "internal_estimate" }],
+  "solarapp_plus_eligible": false,
+  "last_verified": "2026-04-14"
+}

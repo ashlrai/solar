@@ -1,0 +1,63 @@
+{
+  "name": "@ashlrai/ahj",
+  "version": "0.1.0",
+  "description": "Open knowledge graph of US + Canadian solar permitting Authorities Having Jurisdiction (AHJs). Schema, types, and 55 hand-curated rule sets, re-verified monthly.",
+  "license": "MIT",
+  "homepage": "https://solar.ashlr.ai",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashlrai/solar.git",
+    "directory": "packages/ahj"
+  },
+  "bugs": "https://github.com/ashlrai/solar/issues",
+  "author": "Ashlr.ai <founders@ashlr.ai>",
+  "keywords": [
+    "solar",
+    "permitting",
+    "AHJ",
+    "NEC",
+    "SolarAPP+",
+    "knowledge-graph",
+    "open-data"
+  ],
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./schema": {
+      "types": "./dist/schema.d.ts",
+      "import": "./dist/schema.js",
+      "require": "./dist/schema.cjs"
+    },
+    "./data": {
+      "types": "./dist/data.d.ts",
+      "import": "./dist/data.js",
+      "require": "./dist/data.cjs"
+    }
+  },
+  "files": ["dist", "README.md"],
+  "scripts": {
+    "generate": "tsx scripts/generate.ts",
+    "prebuild": "pnpm generate",
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@types/node": "22.10.5",
+    "tsup": "8.3.5",
+    "tsx": "4.19.2",
+    "typescript": "5.7.3",
+    "vitest": "2.1.8"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

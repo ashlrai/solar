@@ -1,0 +1,23 @@
+---
+title: Pipedrive
+description: Stream Ashlr events into Pipedrive deals as notes.
+---
+
+Per-deal notes on every permit lifecycle event. Useful for installers
+running their pipeline through Pipedrive.
+
+## Setup
+
+1. Pipedrive → Settings → Personal preferences → API → copy your token.
+2. Ashlr → Settings → Integrations → Pipedrive → paste token + company
+   domain (the `<domain>` in `<domain>.pipedrive.com`) + (optional) deal id.
+
+## Note format
+
+```
+[Ashlr] Permit package ready · 72% approval
+
+va-fairfax-county · 1 issue · 10-day AHJ median
+
+Project: ashlr.ai/projects/<id>
+```

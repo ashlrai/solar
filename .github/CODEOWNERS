@@ -1,0 +1,10 @@
+# Default — Mason owns everything until co-maintainers join.
+*                               @masonwyatt23
+
+# Blocking-tier AHJ data needs careful review.
+/data/ahj/                      @masonwyatt23
+/packages/ahj/                  @masonwyatt23
+
+# Release infrastructure.
+/.github/workflows/             @masonwyatt23
+/.changeset/                    @masonwyatt23

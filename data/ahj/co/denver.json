@@ -1,0 +1,35 @@
+{
+  "slug": "co-denver",
+  "name": "City and County of Denver",
+  "state": "CO",
+  "county": "Denver",
+  "city": "Denver",
+  "population": 716000,
+  "contacts": [{ "department": "Denver Community Planning and Development", "portal_url": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Community-Planning-and-Development" }],
+  "submission_channels": ["online_portal", "solarapp_plus"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "module_datasheet", "inverter_datasheet", "structural_letter"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 230 }],
+  "rules": [
+    {
+      "id": "co-den-001",
+      "permit_type": "residential_pv",
+      "category": "structural",
+      "description": "Snow load calcs required (40 psf ground snow in most of Denver county).",
+      "severity": "blocking",
+      "source_url": "https://www.denvergov.org",
+      "retrieved_at": "2026-04-14"
+    },
+    {
+      "id": "co-den-002",
+      "permit_type": "residential_pv",
+      "category": "interconnection",
+      "description": "Xcel Energy interconnection + net metering application.",
+      "severity": "blocking",
+      "source_url": "https://www.xcelenergy.com",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 5, "last_updated": "2026-04-14", "source": "SolarAPP+ coverage" }],
+  "solarapp_plus_eligible": true,
+  "last_verified": "2026-04-14"
+}

@@ -1,0 +1,26 @@
+{
+  "slug": "ca-sacramento",
+  "name": "City of Sacramento",
+  "state": "CA",
+  "county": "Sacramento",
+  "city": "Sacramento",
+  "population": 525000,
+  "contacts": [{ "department": "Sacramento Community Development Department", "portal_url": "https://www.cityofsacramento.org/community-development" }],
+  "submission_channels": ["online_portal", "solarapp_plus"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "module_datasheet", "inverter_datasheet", "racking_datasheet"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 260 }],
+  "rules": [
+    {
+      "id": "ca-sac-001",
+      "permit_type": "residential_pv",
+      "category": "interconnection",
+      "description": "SMUD interconnection application + SMUD-specific disconnect labeling.",
+      "severity": "blocking",
+      "source_url": "https://www.smud.org",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 4, "last_updated": "2026-04-14", "source": "SolarAPP+ coverage" }],
+  "solarapp_plus_eligible": true,
+  "last_verified": "2026-04-14"
+}

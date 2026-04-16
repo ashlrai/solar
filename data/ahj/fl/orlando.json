@@ -1,0 +1,35 @@
+{
+  "slug": "fl-orlando",
+  "name": "City of Orlando",
+  "state": "FL",
+  "county": "Orange",
+  "city": "Orlando",
+  "population": 320000,
+  "contacts": [{ "department": "Permitting Services", "portal_url": "https://www.orlando.gov/Building-Development/Permitting-Services" }],
+  "submission_channels": ["online_portal"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "module_datasheet", "inverter_datasheet", "structural_letter", "wind_load_calculations"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 215 }],
+  "rules": [
+    {
+      "id": "fl-orl-001",
+      "permit_type": "residential_pv",
+      "category": "structural",
+      "description": "FL Building Code wind-load design (typically 140 mph outside HVHZ, verify per zone).",
+      "severity": "blocking",
+      "source_url": "https://www.orlando.gov",
+      "retrieved_at": "2026-04-14"
+    },
+    {
+      "id": "fl-orl-002",
+      "permit_type": "residential_pv",
+      "category": "interconnection",
+      "description": "OUC (Orlando Utilities Commission) interconnection — municipal utility, separate SLA.",
+      "severity": "blocking",
+      "source_url": "https://www.ouc.com",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 14, "last_updated": "2026-04-14", "source": "internal_estimate" }],
+  "solarapp_plus_eligible": false,
+  "last_verified": "2026-04-14"
+}

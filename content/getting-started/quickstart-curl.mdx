@@ -1,0 +1,76 @@
+---
+title: Quickstart · curl
+description: Hit the closed Ashlr API in one shell line.
+---
+
+The open packages are great for offline / batch / static rendering. When you
+want **AI-driven permit assembly, plan-check responses, or AHJ portal
+submission**, you'll hit the Ashlr product API at `app.ashlr.ai`.
+
+## Get an API key
+
+Mint one at [app.ashlr.ai/settings/api-keys](https://app.ashlr.ai/settings/api-keys).
+
+## Assemble a permit package
+
+```bash
+curl https://app.ashlr.ai/api/permit-package \
+  -H "x-ashlr-api-key: ashlr_live_…" \
+  -H "Content-Type: application/json" \
+  -d @project.json
+```
+
+Where `project.json` looks like:
+
+```json
+{
+  "homeowner_name": "Jane Homeowner",
+  "address": {
+    "street": "1234 Maple Ln",
+    "city": "Fairfax",
+    "state": "VA",
+    "zip": "22030"
+  },
+  "design": {
+    "system_size_dc_watts": 8400,
+    "system_size_ac_watts": 7600,
+    "annual_production_kwh": 11200,
+    "modules": [{ "manufacturer": "Q CELLS", "model": "Q.PEAK", "watts": 400, "quantity": 21 }],
+    "inverters": [{ "manufacturer": "Enphase", "model": "IQ8+", "type": "microinverter", "rated_watts": 290, "quantity": 21 }],
+    "racking": { "manufacturer": "IronRidge", "model": "XR100", "mount_type": "flush" }
+  }
+}
+```
+
+Response:
+
+```json
+{
+  "ahj_slug": "va-fairfax-county",
+  "approval_probability": 0.72,
+  "estimated_fees_usd": 120,
+  "estimated_turnaround_days": 10,
+  "issues": [
+    { "rule_id": "va-fairfax-001", "severity": "blocking", "description": "PE structural letter required." }
+  ],
+  "documents": [
+    { "filename": "PV-00-cover.pdf", "kind": "cover_sheet", "bytes_size": 2445 }
+  ]
+}
+```
+
+## Plan-check reply with a PDF rejection letter
+
+```bash
+curl https://app.ashlr.ai/api/plan-check \
+  -H "x-ashlr-api-key: …" \
+  -F "ahj_slug=ca-los-angeles-city" \
+  -F 'project=<(jq -c . < project.json)' \
+  -F "plan_check_pdf=@rejection-letter.pdf"
+```
+
+## Rate limits
+
+20 requests/IP/min on agent endpoints by default. Headers
+`x-ratelimit-remaining` and `x-ratelimit-reset` (seconds) on every response.
+Raise via [partners@ashlr.ai](mailto:partners@ashlr.ai).

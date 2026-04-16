@@ -1,0 +1,22 @@
+---
+title: OpenSolar
+description: Connect your OpenSolar org for proposal-to-permit automation.
+---
+
+OpenSolar's free-tier design + proposal flow is widely adopted by small +
+medium installers. The complement is permit work, which OpenSolar punts on.
+
+## Setup
+
+1. OpenSolar → Settings → API → mint a token.
+2. Ashlr → Settings → Integrations → paste token + org id.
+3. Configure OpenSolar to fire `proposal.accepted` webhooks at
+   `https://app.ashlr.ai/api/webhooks/opensolar`.
+
+See [/api/webhooks/opensolar](/api/webhooks/opensolar).
+
+## Trigger semantics
+
+The default is `proposal.accepted`. If you want permits assembled at
+`design.finalized` instead (before the homeowner signs), flip the toggle in
+the integration settings.

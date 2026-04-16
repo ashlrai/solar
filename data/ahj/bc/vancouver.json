@@ -1,0 +1,37 @@
+{
+  "slug": "ca-bc-vancouver",
+  "name": "City of Vancouver",
+  "state": "BC",
+  "country": "CA",
+  "city": "Vancouver",
+  "population": 662000,
+  "contacts": [
+    { "department": "Development, Buildings & Licensing", "portal_url": "https://vancouver.ca/home-property-development/applying-for-a-building-permit.aspx" }
+  ],
+  "submission_channels": ["online_portal"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "module_datasheet", "inverter_datasheet", "structural_letter", "bc_hydro_net_metering_application"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 250, "notes": "CAD ~340; verify" }],
+  "rules": [
+    {
+      "id": "ca-bc-van-001",
+      "permit_type": "residential_pv",
+      "category": "structural",
+      "description": "BC Building Code seismic design (Cascadia subduction zone); P.Eng stamp required (licensed in BC).",
+      "severity": "blocking",
+      "source_url": "https://vancouver.ca/",
+      "retrieved_at": "2026-04-14"
+    },
+    {
+      "id": "ca-bc-van-002",
+      "permit_type": "residential_pv",
+      "category": "interconnection",
+      "description": "BC Hydro Net Metering Agreement; Technical Safety BC electrical permit separate from building permit.",
+      "severity": "blocking",
+      "source_url": "https://www.bchydro.com/powersmart/residential/net-metering.html",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 22, "last_updated": "2026-04-14", "source": "internal_estimate" }],
+  "solarapp_plus_eligible": false,
+  "last_verified": "2026-04-14"
+}

@@ -1,0 +1,35 @@
+{
+  "slug": "ny-buffalo",
+  "name": "City of Buffalo",
+  "state": "NY",
+  "county": "Erie",
+  "city": "Buffalo",
+  "population": 276000,
+  "contacts": [{ "department": "Permit & Inspection Services", "portal_url": "https://www.buffalony.gov" }],
+  "submission_channels": ["online_portal"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "module_datasheet", "inverter_datasheet", "structural_letter"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 170 }],
+  "rules": [
+    {
+      "id": "ny-buf-001",
+      "permit_type": "residential_pv",
+      "category": "structural",
+      "description": "High ground snow load (50 psf typical); snow drift calcs often required.",
+      "severity": "blocking",
+      "source_url": "https://www.buffalony.gov",
+      "retrieved_at": "2026-04-14"
+    },
+    {
+      "id": "ny-buf-002",
+      "permit_type": "residential_pv",
+      "category": "interconnection",
+      "description": "National Grid interconnection + NY-Sun MW Block incentive registration.",
+      "severity": "blocking",
+      "source_url": "https://www.nyserda.ny.gov",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 15, "last_updated": "2026-04-14", "source": "internal_estimate" }],
+  "solarapp_plus_eligible": false,
+  "last_verified": "2026-04-14"
+}

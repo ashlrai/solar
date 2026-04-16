@@ -1,0 +1,24 @@
+{
+  "slug": "va-loudoun-county",
+  "name": "Loudoun County",
+  "state": "VA",
+  "county": "Loudoun",
+  "contacts": [{ "department": "Building & Development", "portal_url": "https://www.loudoun.gov/lola" }],
+  "submission_channels": ["online_portal"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "structural_letter", "module_datasheet", "inverter_datasheet", "racking_datasheet"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 130 }],
+  "rules": [
+    {
+      "id": "va-loudoun-001",
+      "permit_type": "residential_pv",
+      "category": "structural",
+      "description": "PE-stamped structural letter required; Loudoun accepts digital stamps per VA state board.",
+      "severity": "blocking",
+      "source_url": "https://www.loudoun.gov/solar",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 8, "last_updated": "2026-04-14", "source": "internal_estimate" }],
+  "solarapp_plus_eligible": false,
+  "last_verified": "2026-04-14"
+}

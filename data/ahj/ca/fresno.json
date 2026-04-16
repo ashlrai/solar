@@ -1,0 +1,26 @@
+{
+  "slug": "ca-fresno",
+  "name": "City of Fresno",
+  "state": "CA",
+  "county": "Fresno",
+  "city": "Fresno",
+  "population": 545000,
+  "contacts": [{ "department": "Planning & Development", "portal_url": "https://www.fresno.gov/pdm" }],
+  "submission_channels": ["online_portal", "solarapp_plus"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "module_datasheet", "inverter_datasheet"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 235 }],
+  "rules": [
+    {
+      "id": "ca-fre-001",
+      "permit_type": "residential_pv",
+      "category": "interconnection",
+      "description": "PG&E interconnection standard; Title 24 compliance required.",
+      "severity": "blocking",
+      "source_url": "https://www.fresno.gov",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 4, "last_updated": "2026-04-14", "source": "SolarAPP+ coverage" }],
+  "solarapp_plus_eligible": true,
+  "last_verified": "2026-04-14"
+}

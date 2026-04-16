@@ -1,0 +1,35 @@
+{
+  "slug": "ca-ab-calgary",
+  "name": "City of Calgary",
+  "state": "AB",
+  "country": "CA",
+  "city": "Calgary",
+  "population": 1306000,
+  "contacts": [{ "department": "Planning & Development", "portal_url": "https://www.calgary.ca/pda/pd/home-building/building-permits.html" }],
+  "submission_channels": ["online_portal"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "module_datasheet", "inverter_datasheet", "structural_letter"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 175, "notes": "CAD ~240" }],
+  "rules": [
+    {
+      "id": "ca-ab-cal-001",
+      "permit_type": "residential_pv",
+      "category": "structural",
+      "description": "Alberta Building Code snow load (1.0-1.2 kPa); P.Eng stamp required (APEGA).",
+      "severity": "blocking",
+      "source_url": "https://www.calgary.ca",
+      "retrieved_at": "2026-04-14"
+    },
+    {
+      "id": "ca-ab-cal-002",
+      "permit_type": "residential_pv",
+      "category": "interconnection",
+      "description": "ENMAX or Direct Energy micro-generation application (Alberta Utilities Commission rules).",
+      "severity": "blocking",
+      "source_url": "https://www.enmax.com",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 16, "last_updated": "2026-04-14", "source": "internal_estimate" }],
+  "solarapp_plus_eligible": false,
+  "last_verified": "2026-04-14"
+}

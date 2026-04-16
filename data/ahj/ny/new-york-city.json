@@ -1,0 +1,38 @@
+{
+  "slug": "ny-new-york-city",
+  "name": "New York City",
+  "state": "NY",
+  "city": "New York",
+  "population": 8260000,
+  "contacts": [
+    { "department": "NYC Department of Buildings", "portal_url": "https://www.nyc.gov/site/buildings/index.page" },
+    { "department": "FDNY Solar Unit", "portal_url": "https://www.nyc.gov/site/fdny" }
+  ],
+  "submission_channels": ["online_portal"],
+  "required_documents": ["dob_now_application", "site_plan", "electrical_diagram_single_line", "structural_calculations", "module_datasheet", "inverter_datasheet", "racking_datasheet", "fdny_approval_letter"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 380, "notes": "DOB + FDNY review combined" }],
+  "rules": [
+    {
+      "id": "ny-nyc-001",
+      "permit_type": "residential_pv",
+      "category": "fire",
+      "description": "FDNY rooftop access requirements (9ft perimeter clearance on most roofs). Non-negotiable; primary rejection cause in NYC.",
+      "severity": "blocking",
+      "source_url": "https://www.nyc.gov/site/fdny/business/all-certifications/certificate-of-fitness-pv-systems.page",
+      "retrieved_at": "2026-04-14"
+    },
+    {
+      "id": "ny-nyc-002",
+      "permit_type": "residential_pv",
+      "category": "structural",
+      "description": "Stamped structural calcs by NY PE; many pre-1961 buildings require ASCE 7 upgrade analysis.",
+      "severity": "blocking",
+      "source_url": "https://www.nyc.gov/site/buildings",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 28, "last_updated": "2026-04-14", "source": "internal_estimate" }],
+  "solarapp_plus_eligible": false,
+  "notes": "Among the toughest US AHJs — dual DOB+FDNY review, strict setback rules, Con Edison interconnection in parallel.",
+  "last_verified": "2026-04-14"
+}

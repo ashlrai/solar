@@ -1,0 +1,26 @@
+{
+  "slug": "fl-st-petersburg",
+  "name": "City of St. Petersburg",
+  "state": "FL",
+  "county": "Pinellas",
+  "city": "St. Petersburg",
+  "population": 259000,
+  "contacts": [{ "department": "Development Review Services", "portal_url": "https://www.stpete.org" }],
+  "submission_channels": ["online_portal"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "module_datasheet", "inverter_datasheet", "structural_letter", "wind_load_calculations"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 200 }],
+  "rules": [
+    {
+      "id": "fl-stp-001",
+      "permit_type": "residential_pv",
+      "category": "structural",
+      "description": "Coastal exposure; 140 mph design wind typical per FL Building Code.",
+      "severity": "blocking",
+      "source_url": "https://www.stpete.org",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 13, "last_updated": "2026-04-14", "source": "internal_estimate" }],
+  "solarapp_plus_eligible": false,
+  "last_verified": "2026-04-14"
+}

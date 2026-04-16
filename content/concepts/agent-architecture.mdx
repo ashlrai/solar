@@ -1,0 +1,46 @@
+---
+title: Agent architecture
+description: How Ashlr's eight agents orchestrate the permit lifecycle.
+---
+
+## Eight agents
+
+| Agent | Tier | Job |
+|---|---|---|
+| Permit assembler | reasoning | AHJ resolution → compliance → 6-sheet PDF package |
+| Design review | reasoning | Pre-submission likely-reject scan |
+| Interconnection draft | reasoning | Utility-side application narrative |
+| Plan-check reply | reasoning | Drafts response to AHJ correction notice |
+| Plan-check vision | reasoning | Reads rejection-letter PDF, extracts comments |
+| PE letter | reasoning | Drafts structural letter for PE review + stamp |
+| Status tracker | fast | Classifies AHJ portal status snapshots |
+| O&M dispatch | fast | Triages inverter alerts → remote / truck-roll / monitor |
+
+## Tool contract
+
+All agents use a provider-agnostic tool interface (`src/lib/llm/types.ts` in
+the closed product). Tools include:
+
+- `classify_ahj(address)` → AHJ slug
+- `get_ahj_rules(slug)` → full rule set
+- `list_ahjs()` → corpus index
+- `run_compliance_check(project)` → deterministic findings + score
+- `optimize_incentives(state, scope, system_cost)` → stack of applicable
+  federal + state programs
+
+Tool calls are translated into each provider's native format by the LLM
+adapter. The agent loop is otherwise provider-blind.
+
+## Audit
+
+Every invocation persists to `agent_runs` with input, output, tool call
+sequence, token counts, and cost. Pilots see the trail in their dashboard;
+auditors see the same row.
+
+## Failure modes
+
+- LLM hallucination on a rule — caught by the deterministic pass; the rule
+  must be `blocking` for it to actually break a submission.
+- Stale AHJ data — caught by the freshness badge + monthly verify workflow.
+- Provider outage — handled by the multi-provider router (see
+  [/concepts/multi-provider-routing](/concepts/multi-provider-routing)).

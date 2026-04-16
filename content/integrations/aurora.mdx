@@ -1,0 +1,30 @@
+---
+title: Aurora Solar
+description: Connect your Aurora tenant for design import + permit auto-assembly.
+---
+
+Aurora is the dominant solar design tool. Ashlr complements it — we are
+explicitly **not** a design tool. Aurora stays your design source of truth.
+
+## Setup
+
+1. In Aurora, mint an API key for your tenant.
+2. In Ashlr at [/settings/integrations](https://app.ashlr.ai/settings/integrations),
+   paste the key + tenant id.
+3. Configure Aurora to fire `design.finalized` webhooks at
+   `https://app.ashlr.ai/api/webhooks/aurora` with your Ashlr API key + HMAC signature.
+
+See [/api/webhooks/aurora](/api/webhooks/aurora) for the wire format.
+
+## What Ashlr does after the webhook fires
+
+1. Pulls the full design from Aurora via your stored credentials.
+2. Resolves the AHJ from the site address.
+3. Runs compliance + assembles the 6-sheet permit package.
+4. Persists the package + scores in your Ashlr org.
+5. Sends a Slack notification (if configured) with the project URL.
+
+## Pricing
+
+Imported projects bill at the same per-permit rate as native ones. No
+integration fee.

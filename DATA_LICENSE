@@ -1,0 +1,45 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+The data assets in this repository — including but not limited to:
+
+  - data/ahj/**/*.json           (AHJ knowledge graph entries)
+  - data/glossary/**             (glossary term definitions)
+  - data/incentives/**           (federal + state incentive rules)
+  - content/ahj-handbook/**      (long-form AHJ teardowns)
+
+are licensed under the Creative Commons Attribution 4.0 International License.
+
+You are free to:
+
+  Share — copy and redistribute the material in any medium or format
+  Adapt — remix, transform, and build upon the material for any purpose,
+          even commercially.
+
+Under the following terms:
+
+  Attribution — You must give appropriate credit, provide a link to the
+                license, and indicate if changes were made. Recommended
+                attribution:
+
+                  "AHJ data from Ashlr.ai (https://solar.ashlr.ai),
+                  licensed under CC BY 4.0."
+
+  No additional restrictions — You may not apply legal terms or technological
+                                measures that legally restrict others from
+                                doing anything the license permits.
+
+Full license text: https://creativecommons.org/licenses/by/4.0/legalcode
+
+NO WARRANTIES. The data is provided "as is". Authority Having Jurisdiction
+rules change frequently; we re-verify on a 30/90/180-day cadence (see
+CONTRIBUTING.md). Always confirm current rules with the AHJ before submitting
+a permit. Use at your own risk.
+
+---
+
+Source attribution and freshness metadata are embedded inside each rule
+record (`source_url`, `retrieved_at`). When you redistribute, please
+preserve those fields.
+
+For commercial customers who want SLA-backed data with API access:
+https://ashlr.ai/pricing

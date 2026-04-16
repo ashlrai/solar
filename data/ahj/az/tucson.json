@@ -1,0 +1,26 @@
+{
+  "slug": "az-tucson",
+  "name": "City of Tucson",
+  "state": "AZ",
+  "county": "Pima",
+  "city": "Tucson",
+  "population": 543000,
+  "contacts": [{ "department": "Planning and Development Services", "portal_url": "https://www.tucsonaz.gov/pdsd" }],
+  "submission_channels": ["online_portal", "solarapp_plus"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "module_datasheet", "inverter_datasheet"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 160 }],
+  "rules": [
+    {
+      "id": "az-tuc-001",
+      "permit_type": "residential_pv",
+      "category": "interconnection",
+      "description": "TEP (Tucson Electric Power) interconnection application required.",
+      "severity": "blocking",
+      "source_url": "https://www.tep.com",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 3, "last_updated": "2026-04-14", "source": "SolarAPP+ coverage" }],
+  "solarapp_plus_eligible": true,
+  "last_verified": "2026-04-14"
+}

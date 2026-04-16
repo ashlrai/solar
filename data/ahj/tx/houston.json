@@ -1,0 +1,26 @@
+{
+  "slug": "tx-houston",
+  "name": "City of Houston",
+  "state": "TX",
+  "county": "Harris",
+  "city": "Houston",
+  "population": 2300000,
+  "contacts": [{ "department": "Houston Permitting Center", "portal_url": "https://www.houstonpermittingcenter.org" }],
+  "submission_channels": ["online_portal"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "module_datasheet", "inverter_datasheet", "structural_letter"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 155 }],
+  "rules": [
+    {
+      "id": "tx-hou-001",
+      "permit_type": "residential_pv",
+      "category": "interconnection",
+      "description": "CenterPoint Energy interconnection agreement required before final inspection.",
+      "severity": "blocking",
+      "source_url": "https://www.centerpointenergy.com",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 9, "last_updated": "2026-04-14", "source": "internal_estimate" }],
+  "solarapp_plus_eligible": false,
+  "last_verified": "2026-04-14"
+}

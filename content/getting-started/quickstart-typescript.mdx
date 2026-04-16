@@ -1,0 +1,83 @@
+---
+title: Quickstart · TypeScript
+description: From npm install to your first AHJ lookup in under a minute.
+---
+
+## Install
+
+```bash
+npm install @ashlrai/ahj
+# or
+pnpm add @ashlrai/ahj
+# or
+yarn add @ashlrai/ahj
+```
+
+## Look up an AHJ
+
+```ts
+import { loadAhjBySlug, coverage } from "@ashlrai/ahj";
+
+const fairfax = loadAhjBySlug("va-fairfax-county");
+if (!fairfax) throw new Error("Unknown slug");
+
+console.log(`${fairfax.name}, ${fairfax.state}`);
+console.log(`${fairfax.rules.length} codified rules`);
+console.log(`SolarAPP+ eligible: ${fairfax.solarapp_plus_eligible}`);
+
+for (const rule of fairfax.rules) {
+  console.log(`  [${rule.severity}] ${rule.description}`);
+}
+
+const c = coverage();
+console.log(`Total AHJs: ${c.total} · median turnaround ${c.median_turnaround_business_days}d`);
+```
+
+## Browse all jurisdictions
+
+```ts
+import { listAhjs, listAhjsByState } from "@ashlrai/ahj";
+
+const all = listAhjs();
+const ca = listAhjsByState("CA");
+console.log(`${ca.length} CA jurisdictions of ${all.length} total`);
+```
+
+## Check freshness
+
+```ts
+import { loadAhjBySlug, freshnessLabel } from "@ashlrai/ahj";
+
+const ahj = loadAhjBySlug("ca-los-angeles-city")!;
+const label = freshnessLabel(ahj, "top10"); // 30-day cadence
+
+if (label === "stale") {
+  console.warn("Rules may be out of date — verify against the source URL.");
+}
+```
+
+## Glossary lookup
+
+```ts
+import { findTerm } from "@ashlrai/glossary";
+
+console.log(findTerm("nec-705-12")?.summary);
+```
+
+## Code-clause references
+
+```ts
+import { findClause, listClausesByTopic } from "@ashlrai/compliance-spec";
+
+console.log(findClause("nec-690.12")?.summary);
+
+for (const c of listClausesByTopic("rapid_shutdown")) {
+  console.log(`${c.citation} — ${c.summary}`);
+}
+```
+
+## What's next
+
+- [API reference](/api/permit-package) — when you want to call the closed Ashlr product
+- [Concepts](/concepts/ahj-knowledge-graph) — how the data is shaped
+- [AHJ handbook](/ahj-handbook) — browse all jurisdictions in your browser

@@ -1,0 +1,21 @@
+---
+title: Webhook · HelioScope
+description: Fire design.finalized from HelioScope to start the permit pipeline.
+---
+
+```
+POST https://app.ashlr.ai/api/webhooks/helioscope
+```
+
+```http
+x-ashlr-api-key:   ashlr_live_…
+x-ashlr-signature: sha256=…
+```
+
+```json
+{ "event": "design.finalized", "project_id": "helioscope-project-id" }
+```
+
+C&I-leaning design tool — useful for commercial projects where structural
+coordination is the bottleneck. Same response shape as
+[Aurora webhook](/api/webhooks/aurora).

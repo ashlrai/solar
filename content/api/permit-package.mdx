@@ -1,0 +1,70 @@
+---
+title: POST /api/permit-package
+description: Assemble an AHJ-specific permit package from a finished design.
+---
+
+Assemble a 6-sheet permit package, run compliance, return approval
+probability + issues + downloadable documents.
+
+## Request
+
+```http
+POST /api/permit-package HTTP/1.1
+Host: app.ashlr.ai
+Content-Type: application/json
+x-ashlr-api-key: ashlr_live_…
+```
+
+Body conforms to the `Project` shape:
+
+```json
+{
+  "homeowner_name": "Jane Homeowner",
+  "address": { "street": "...", "city": "...", "state": "VA", "zip": "..." },
+  "design": {
+    "system_size_dc_watts": 8400,
+    "system_size_ac_watts": 7600,
+    "annual_production_kwh": 11200,
+    "modules": [...],
+    "inverters": [...],
+    "racking": { ... }
+  }
+}
+```
+
+## Response
+
+```json
+{
+  "ahj_slug": "va-fairfax-county",
+  "approval_probability": 0.72,
+  "estimated_fees_usd": 120,
+  "estimated_turnaround_days": 10,
+  "issues": [
+    { "rule_id": "va-fairfax-001", "severity": "blocking", "description": "..." }
+  ],
+  "documents": [
+    { "filename": "PV-00-cover.pdf",       "kind": "cover_sheet",     "bytes_size": 2445 },
+    { "filename": "PV-01-site-plan.pdf",   "kind": "site_plan",       "bytes_size": 2185 },
+    { "filename": "PV-02-roof-plan.pdf",   "kind": "site_plan",       "bytes_size": 1978 },
+    { "filename": "PV-03-single-line.pdf", "kind": "single_line_diagram", "bytes_size": 2199 },
+    { "filename": "PV-04-placards.pdf",    "kind": "placards",        "bytes_size": 1543 },
+    { "filename": "PV-APP-application.pdf","kind": "application_form","bytes_size": 2591 }
+  ]
+}
+```
+
+## Errors
+
+| Status | Meaning |
+|---|---|
+| 400 | Project failed validation; details in `error` |
+| 401 | Missing or invalid `x-ashlr-api-key` |
+| 429 | Rate limited; retry after `x-ratelimit-reset` seconds |
+| 500 | Internal — correlate via `x-request-id` header |
+
+## Notes
+
+- AHJ resolution is deterministic — same address always resolves to the same slug.
+- Documents are stored in your org's R2 bucket at `orgs/{org_id}/projects/{project_id}/`. Pre-signed download URLs live for 15 minutes.
+- The deterministic compliance engine is layered with an LLM judgment pass; see [/concepts/compliance-engine](/concepts/compliance-engine).

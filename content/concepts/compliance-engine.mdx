@@ -1,0 +1,47 @@
+---
+title: Compliance engine
+description: Deterministic rule evaluation + LLM judgment, in that order.
+---
+
+## Two-stage evaluation
+
+Every permit submission runs through:
+
+1. **Deterministic pass** — every codified rule for the resolved AHJ is
+   evaluated as code, not prompt. Output is a list of `ComplianceIssue` with
+   severity, suggested fix, and the originating `rule_id`.
+2. **Judgment overlay** — the reasoning agent reads the project + AHJ rule
+   set + deterministic findings, then surfaces soft issues that the
+   deterministic engine can't catch. Examples: "this racking spec is
+   unusually rare in this AHJ", "this attachment density looks under-spec
+   for the snow-load tier here".
+
+Deterministic findings always win when they conflict with the LLM. The LLM
+only **adds** issues, never removes them.
+
+## Severity floors
+
+- `blocking` — the AHJ will reject. We never auto-submit a package with a
+  blocking issue unfixed.
+- `likely_rejection` — the AHJ historically rejects this on first
+  submission ≥ 50% of the time. Surfaced prominently; submission is
+  allowed but flagged.
+- `advisory` — worth knowing; rarely changes the outcome.
+
+## Rule evaluation hooks
+
+For the open data, evaluation is whatever you write on top — the rules are
+a substrate. The Ashlr product evaluates them in `src/lib/permits/compliance.ts`
+(closed source); the patterns are documented here so partners can mirror them.
+
+## Commercial overlay
+
+Projects > 25 kW DC trigger a commercial overlay with additional rules:
+- PE-stamped SLD (blocking)
+- Utility load-impact study for > 100 kW (likely_rejection)
+- Medium-voltage transformer note for > 250 kW
+- DC/AC ratio sanity check
+- NEC 705.13 PCS advisory > 50 kW
+
+See [glossary/nec-705-13-pcs](/glossary/nec-705-13-pcs) and
+[glossary/itc](/glossary/itc) for context.

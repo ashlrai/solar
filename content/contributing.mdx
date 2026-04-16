@@ -1,0 +1,62 @@
+---
+title: Contributing
+description: Help us keep AHJ rules accurate. The contribution we want most is fixes.
+---
+
+This repo is the open half of [Ashlr Solar](https://ashlr.ai). The thing
+that's open is the data + docs. The thing that compounds when shared is
+trust in those rules.
+
+## What we want most
+
+A permit reviewer told you something that contradicts what we have. Tell us.
+
+- 🛠 [Update an AHJ rule](https://github.com/ashlrai/solar/issues/new?template=ahj-update.yml) — fill the form, we PR it within 3 business days
+- 🆕 [Propose a new AHJ](https://github.com/ashlrai/solar/issues/new?template=new-ahj.yml)
+- 🐛 [Report a bug](https://github.com/ashlrai/solar/issues/new?template=bug.yml)
+- ✨ [Request a feature](https://github.com/ashlrai/solar/issues/new?template=feature-request.yml)
+
+## Local setup
+
+```bash
+git clone https://github.com/ashlrai/solar
+cd solar
+pnpm install
+pnpm dev          # docs site at localhost:3000
+pnpm typecheck
+pnpm test
+pnpm verify:ahj
+```
+
+## AHJ contribution flow
+
+1. Edit `data/ahj/<state>/<slug>.json` (schema in
+   [`packages/ahj/src/schema.ts`](https://github.com/ashlrai/solar/blob/main/packages/ahj/src/schema.ts)).
+2. Bump `retrieved_at` on edited rules.
+3. Run `pnpm verify:ahj --slug <your-slug>`.
+4. Open a PR — fill the template; reference your source page.
+
+`severity: blocking` rule changes require two reviewers. CODEOWNERS enforces.
+
+## Re-verification cadence
+
+Per [docs/ahj-verification-policy.md](https://github.com/ashlrai/solar/blob/main/CONTRIBUTING.md#re-verification-cadence):
+
+| Tier | Cadence |
+|---|---|
+| Top-10 | 30 days |
+| Top-50 | 90 days |
+| Long-tail | 180 days |
+
+The docs site shows an amber freshness badge with a one-click "Refresh"
+issue link when an entry ages past its tier.
+
+## License
+
+By contributing, you agree your contribution may be released under MIT
+(code) or CC-BY-4.0 (data + content). No CLA.
+
+## Contact
+
+Open a [discussion](https://github.com/ashlrai/solar/discussions) or email
+**founders@ashlr.ai**.

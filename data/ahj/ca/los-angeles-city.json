@@ -1,0 +1,72 @@
+{
+  "slug": "ca-los-angeles-city",
+  "name": "City of Los Angeles",
+  "state": "CA",
+  "county": "Los Angeles",
+  "city": "Los Angeles",
+  "fips": "0644000",
+  "population": 3820000,
+  "contacts": [
+    {
+      "department": "LADBS — Residential Plan Check (Solar)",
+      "portal_url": "https://www.ladbs.org/services/online-services/epermit-ladbs",
+      "phone": "213-482-0000"
+    },
+    {
+      "department": "LADWP — Solar Incentive Program",
+      "portal_url": "https://ladwp.com/sipbill"
+    }
+  ],
+  "submission_channels": ["online_portal", "solarapp_plus"],
+  "required_documents": [
+    "ladbs_application_form",
+    "site_plan",
+    "electrical_diagram_single_line",
+    "structural_calculations",
+    "module_datasheet",
+    "inverter_datasheet",
+    "racking_datasheet",
+    "labels_placards",
+    "ladwp_interconnection_application"
+  ],
+  "fees": [
+    { "permit_type": "residential_pv", "amount_usd": 450, "formula": "Base $350 + plan check", "notes": "Verify with LADBS Fee Estimator before submission." }
+  ],
+  "rules": [
+    {
+      "id": "ca-lac-001",
+      "permit_type": "residential_pv",
+      "category": "fire",
+      "description": "Roof access pathways per CRC R331 / CFC 1205: minimum 36\" pathways from eave to ridge on each slope with array.",
+      "code_reference": "CFC 1205",
+      "severity": "blocking",
+      "source_url": "https://www.ladbs.org/docs/default-source/publications/information-bulletins/building-code/ib-p-bc-2020-111-residential-rooftop-photovoltaic-systems.pdf",
+      "retrieved_at": "2026-04-14"
+    },
+    {
+      "id": "ca-lac-002",
+      "permit_type": "residential_pv",
+      "category": "electrical",
+      "description": "Rapid shutdown device required at or within 1ft of array per NEC 690.12.",
+      "code_reference": "NEC 690.12",
+      "severity": "blocking",
+      "source_url": "https://www.ladbs.org/docs/default-source/publications/information-bulletins/electrical-code/ib-p-ec-2020-007-photovoltaic-systems.pdf",
+      "retrieved_at": "2026-04-14"
+    },
+    {
+      "id": "ca-lac-003",
+      "permit_type": "residential_pv",
+      "category": "structural",
+      "description": "Wet-stamped structural calculations by CA-licensed engineer for arrays > 4 kW or on unconventional roofs.",
+      "severity": "likely_rejection",
+      "source_url": "https://www.ladbs.org/",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [
+    { "permit_type": "residential_pv", "median_business_days": 3, "p90_business_days": 14, "last_updated": "2026-04-14", "source": "SolarAPP+ coverage + LADBS posted SLAs" }
+  ],
+  "solarapp_plus_eligible": true,
+  "notes": "SolarAPP+ eligible for many residential configurations — instant review. Fall back to LADBS plan check for batteries, ground mounts, or MPU.",
+  "last_verified": "2026-04-14"
+}

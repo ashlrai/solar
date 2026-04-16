@@ -1,0 +1,35 @@
+{
+  "slug": "ma-boston",
+  "name": "City of Boston",
+  "state": "MA",
+  "county": "Suffolk",
+  "city": "Boston",
+  "population": 650000,
+  "contacts": [{ "department": "Inspectional Services Department", "portal_url": "https://www.boston.gov/departments/inspectional-services" }],
+  "submission_channels": ["online_portal"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "module_datasheet", "inverter_datasheet", "structural_letter", "fire_department_review"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 220 }],
+  "rules": [
+    {
+      "id": "ma-bos-001",
+      "permit_type": "residential_pv",
+      "category": "fire",
+      "description": "Boston Fire Department rooftop access review required; tight geometry on row houses causes frequent redesigns.",
+      "severity": "blocking",
+      "source_url": "https://www.boston.gov",
+      "retrieved_at": "2026-04-14"
+    },
+    {
+      "id": "ma-bos-002",
+      "permit_type": "residential_pv",
+      "category": "interconnection",
+      "description": "Eversource interconnection; SMART block tracking for incentive lock-in.",
+      "severity": "advisory",
+      "source_url": "https://www.mass.gov/smart",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 18, "last_updated": "2026-04-14", "source": "internal_estimate" }],
+  "solarapp_plus_eligible": false,
+  "last_verified": "2026-04-14"
+}

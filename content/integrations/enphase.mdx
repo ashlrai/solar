@@ -1,0 +1,18 @@
+---
+title: Enphase
+description: Stream Enphase Envoy telemetry into the O&M wedge.
+---
+
+Phase-3 wedge. Send Envoy readings on a per-site cadence; we detect
+offline + inverter fault + underproduction + comms-lost; the dispatch
+agent classifies remote / truck-roll / monitor.
+
+## Format
+
+See [/api/om/ingest](/api/om/ingest). Set `inverter_platform: "enphase"` on
+the site row.
+
+## Site mapping
+
+One Ashlr `site` per Envoy serial. Map your homeowner record to the site at
+ingest time so notifications land on the right project.

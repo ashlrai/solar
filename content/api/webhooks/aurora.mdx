@@ -1,0 +1,54 @@
+---
+title: Webhook · Aurora Solar
+description: Configure Aurora to fire design.finalized into Ashlr.
+---
+
+When Aurora marks a design as final, fire a webhook into Ashlr. We pull
+the full design, assemble the permit package, persist it to your org, and
+return a project URL.
+
+## Endpoint
+
+```
+POST https://app.ashlr.ai/api/webhooks/aurora
+```
+
+## Headers
+
+```http
+x-ashlr-api-key:   ashlr_live_…
+x-ashlr-signature: sha256=<HMAC-SHA-256 of raw body, hex>
+Content-Type:      application/json
+```
+
+## Payload
+
+```json
+{
+  "event": "design.finalized",
+  "project_id": "aurora-project-uuid"
+}
+```
+
+We use the `project_id` to fetch the full design from your Aurora tenant
+(via your stored Aurora API credentials in Ashlr), normalize to our
+`SolarDesign` shape, and run the permit pipeline.
+
+## Response
+
+```json
+{
+  "received": true,
+  "imported": {
+    "project_id": "ashlr-project-uuid",
+    "ahj_slug": "va-fairfax-county",
+    "approval_probability": 0.78
+  }
+}
+```
+
+## Notes
+
+- Other event types are accepted but ignored (`{ received: true, skipped: true }`).
+- Signature verification is constant-time. Unsigned requests are rejected.
+- See also: [OpenSolar webhook](/api/webhooks/opensolar) · [HelioScope webhook](/api/webhooks/helioscope).

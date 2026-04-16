@@ -1,0 +1,38 @@
+---
+title: Multi-provider LLM routing
+description: How Ashlr routes between Claude Opus 4.6 and Grok-4-fast-reasoning to keep COGS sustainable.
+---
+
+Per-permit LLM cost is the largest variable in our COGS. Routing is the
+single biggest lever.
+
+## Two tiers
+
+| Tier | Default provider | Use |
+|---|---|---|
+| `reasoning` | Anthropic Claude Opus 4.6 | Multi-step agent orchestration, plan-check response drafting, ambiguous judgment |
+| `fast` | xAI Grok-4-fast-reasoning | Rule-lookup summarization, classification, doc extraction, status-update parsing |
+
+## Cost reality (April 2026)
+
+| Model | $/M input | $/M output |
+|---|---|---|
+| Claude Opus 4.6 | $15 | $75 |
+| Grok-4-fast-reasoning | $0.20 | $0.50 |
+
+Routing the right tier saves 10–30× on high-volume tasks without quality
+loss. We shadow-eval new providers before promoting (route 10% of traffic
+to a candidate, grade against the production output, promote when
+verdict-match ≥ 80%).
+
+## Telemetry
+
+Every agent run logs `provider`, `model`, `total_input_tokens`,
+`total_output_tokens`, `cost_cents`. The public [/status](https://solar.ashlr.ai/status)
+page shows the rolling 30-day breakdown.
+
+## Failover
+
+If the primary provider 5xx's or rate-limits, we fall back to the secondary
+within the same tier. Retries are bounded; no exponential backoff loops on
+user-facing requests.

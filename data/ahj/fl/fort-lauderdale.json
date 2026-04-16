@@ -1,0 +1,27 @@
+{
+  "slug": "fl-fort-lauderdale",
+  "name": "City of Fort Lauderdale",
+  "state": "FL",
+  "county": "Broward",
+  "city": "Fort Lauderdale",
+  "population": 183000,
+  "contacts": [{ "department": "Department of Sustainable Development", "portal_url": "https://www.fortlauderdale.gov" }],
+  "submission_channels": ["online_portal"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "module_datasheet", "inverter_datasheet", "structural_letter", "wind_load_calculations", "noa_approval_letter"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 265 }],
+  "rules": [
+    {
+      "id": "fl-ftl-001",
+      "permit_type": "residential_pv",
+      "category": "structural",
+      "description": "Broward HVHZ — 170 mph design wind; Miami-Dade NOA products required.",
+      "severity": "blocking",
+      "source_url": "https://www.broward.org",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 19, "last_updated": "2026-04-14", "source": "internal_estimate" }],
+  "solarapp_plus_eligible": false,
+  "notes": "Broward is part of the HVHZ envelope with Miami-Dade; NOA and wind rules apply.",
+  "last_verified": "2026-04-14"
+}

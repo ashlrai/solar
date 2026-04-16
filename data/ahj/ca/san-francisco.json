@@ -1,0 +1,36 @@
+{
+  "slug": "ca-san-francisco",
+  "name": "City and County of San Francisco",
+  "state": "CA",
+  "county": "San Francisco",
+  "city": "San Francisco",
+  "population": 808000,
+  "contacts": [{ "department": "SF Department of Building Inspection", "portal_url": "https://sfdbi.org" }],
+  "submission_channels": ["online_portal"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "structural_calculations", "module_datasheet", "inverter_datasheet", "racking_datasheet"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 520 }],
+  "rules": [
+    {
+      "id": "ca-sf-001",
+      "permit_type": "residential_pv",
+      "category": "structural",
+      "description": "Seismic + wind calcs required per SF amendments; stamped by CA PE.",
+      "severity": "blocking",
+      "source_url": "https://sfdbi.org/solar-permits",
+      "retrieved_at": "2026-04-14"
+    },
+    {
+      "id": "ca-sf-002",
+      "permit_type": "residential_pv",
+      "category": "setback",
+      "description": "Historic district and parapet rules apply in many SF neighborhoods; planning-department sign-off often needed.",
+      "severity": "likely_rejection",
+      "source_url": "https://sfplanning.org",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 24, "last_updated": "2026-04-14", "source": "internal_estimate" }],
+  "solarapp_plus_eligible": false,
+  "notes": "One of the slowest CA AHJs — pre-application meetings recommended for historic districts.",
+  "last_verified": "2026-04-14"
+}

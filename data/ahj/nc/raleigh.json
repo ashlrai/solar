@@ -1,0 +1,26 @@
+{
+  "slug": "nc-raleigh",
+  "name": "City of Raleigh",
+  "state": "NC",
+  "county": "Wake",
+  "city": "Raleigh",
+  "population": 480000,
+  "contacts": [{ "department": "Development Services Customer Service Center", "portal_url": "https://raleighnc.gov/services/business/how-apply-building-permit" }],
+  "submission_channels": ["online_portal"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "module_datasheet", "inverter_datasheet", "structural_letter"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 140 }],
+  "rules": [
+    {
+      "id": "nc-ral-001",
+      "permit_type": "residential_pv",
+      "category": "interconnection",
+      "description": "Duke Energy Progress interconnection required before PTO.",
+      "severity": "blocking",
+      "source_url": "https://www.duke-energy.com",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 9, "last_updated": "2026-04-14", "source": "internal_estimate" }],
+  "solarapp_plus_eligible": false,
+  "last_verified": "2026-04-14"
+}

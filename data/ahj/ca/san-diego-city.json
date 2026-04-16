@@ -1,0 +1,26 @@
+{
+  "slug": "ca-san-diego-city",
+  "name": "City of San Diego",
+  "state": "CA",
+  "county": "San Diego",
+  "city": "San Diego",
+  "population": 1381000,
+  "contacts": [{ "department": "Development Services Department", "portal_url": "https://www.sandiego.gov/development-services" }],
+  "submission_channels": ["online_portal", "solarapp_plus"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "module_datasheet", "inverter_datasheet", "racking_datasheet", "labels_placards"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 325 }],
+  "rules": [
+    {
+      "id": "ca-sd-001",
+      "permit_type": "residential_pv",
+      "category": "fire",
+      "description": "CFC 1205 pathways + Title 24 energy compliance docs required.",
+      "severity": "blocking",
+      "source_url": "https://www.sandiego.gov/development-services",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 3, "last_updated": "2026-04-14", "source": "SolarAPP+ coverage" }],
+  "solarapp_plus_eligible": true,
+  "last_verified": "2026-04-14"
+}

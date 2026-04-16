@@ -1,0 +1,20 @@
+{
+  "title": "Ashlr Solar",
+  "pages": [
+    "index",
+    "---Get started---",
+    "getting-started",
+    "---Concepts---",
+    "concepts",
+    "---API---",
+    "api",
+    "---Integrations---",
+    "integrations",
+    "---Reference---",
+    "ahj-handbook",
+    "glossary",
+    "ahj-handbook/teardowns",
+    "---Project---",
+    "contributing"
+  ]
+}

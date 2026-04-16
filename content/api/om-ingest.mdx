@@ -1,0 +1,42 @@
+---
+title: POST /api/om/ingest
+description: Ingest inverter telemetry; receive any alerts raised by the deterministic detector.
+---
+
+Phase-3 wedge. Send readings from Enphase, SolarEdge, Tesla, Fronius, or SMA
+on a per-site cadence. We detect offline / inverter fault / underproduction /
+comms-lost; the dispatch agent classifies each into remote remediation,
+truck roll, or monitor.
+
+## Request
+
+```http
+POST /api/om/ingest
+x-ashlr-api-key: ashlr_live_…
+
+{
+  "site": {
+    "id": "uuid",
+    "org_id": "uuid",
+    "name": "Carter residence",
+    "address": { "street": "...", "city": "...", "state": "VA", "zip": "..." },
+    "nameplate_dc_watts": 9400,
+    "inverter_platform": "enphase"
+  },
+  "readings": [
+    { "site_id": "uuid", "at": "2026-04-16T17:00:00Z", "ac_watts": 7200, "dc_watts": 7900, "pr": 0.81 }
+  ],
+  "expected_pr": 0.82
+}
+```
+
+## Response
+
+```json
+{
+  "readings_accepted": 1,
+  "alerts_raised": [
+    { "kind": "underproduction", "severity": "warn", "detail": { "observed_pr": 0.65, "expected_pr": 0.82 } }
+  ]
+}
+```

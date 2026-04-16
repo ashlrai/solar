@@ -1,0 +1,40 @@
+---
+title: POST /api/status-poll
+description: Classify an AHJ portal status snapshot.
+---
+
+Hand a portal scrape; get a structured status read.
+
+## Request
+
+```http
+POST /api/status-poll
+x-ashlr-api-key: ashlr_live_…
+
+{
+  "ahj_slug": "ca-los-angeles-city",
+  "snapshot_text": "Application LADBS-26-12345 status: Under Review. Last updated 2026-04-16. Plan check fee: $450 (paid)."
+}
+```
+
+## Response
+
+```json
+{
+  "status": "under_review",
+  "confidence": 0.92,
+  "summary": "Under review at LADBS — no comments yet.",
+  "reviewer_comments": [],
+  "fee_due_usd": null,
+  "provider": "xai",
+  "model": "grok-4-fast-reasoning"
+}
+```
+
+`status` is one of: `submitted` · `under_review` · `correction_required` · `approved` · `rejected` · `awaiting_payment` · `other`.
+
+## Tier note
+
+Runs on the FAST tier (Grok-4-fast-reasoning) by default — high-volume,
+low-stakes classification that's re-validated deterministically before any
+write. See [/concepts/multi-provider-routing](/concepts/multi-provider-routing).

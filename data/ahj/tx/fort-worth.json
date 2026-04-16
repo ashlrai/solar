@@ -1,0 +1,26 @@
+{
+  "slug": "tx-fort-worth",
+  "name": "City of Fort Worth",
+  "state": "TX",
+  "county": "Tarrant",
+  "city": "Fort Worth",
+  "population": 956000,
+  "contacts": [{ "department": "Development Services Department", "portal_url": "https://www.fortworthtexas.gov/departments/developmentservices" }],
+  "submission_channels": ["online_portal"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "module_datasheet", "inverter_datasheet", "structural_letter"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 165 }],
+  "rules": [
+    {
+      "id": "tx-ftw-001",
+      "permit_type": "residential_pv",
+      "category": "interconnection",
+      "description": "Oncor or TriCounty Electric interconnection depending on territory.",
+      "severity": "blocking",
+      "source_url": "https://www.oncor.com",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 11, "last_updated": "2026-04-14", "source": "internal_estimate" }],
+  "solarapp_plus_eligible": false,
+  "last_verified": "2026-04-14"
+}

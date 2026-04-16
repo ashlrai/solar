@@ -1,0 +1,32 @@
+---
+title: HubSpot
+description: Stream Ashlr events into HubSpot Timeline as deal updates.
+---
+
+When a permit lifecycle event happens, we POST a HubSpot Timeline Event so
+your sales team sees the status without leaving the CRM.
+
+## Setup
+
+1. HubSpot → Settings → Integrations → Private Apps → mint a token with
+   `crm.objects.deals.write` + `timeline.write` scopes.
+2. Ashlr → Settings → Integrations → HubSpot → paste token + (optional) deal id.
+
+## What we send
+
+```json
+{
+  "eventTemplateId": "ashlr_permit_event",
+  "objectId": "<deal-id>",
+  "tokens": {
+    "kind": "permit.assembled",
+    "title": "Permit package ready · 72% approval",
+    "body": "va-fairfax-county · 1 issue · 10-day AHJ median",
+    "ashlr_project_id": "uuid"
+  }
+}
+```
+
+## Failure mode
+
+CRM outages never block the underlying notification. We fan out best-effort.

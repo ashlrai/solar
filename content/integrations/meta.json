@@ -1,0 +1,15 @@
+{
+  "title": "Integrations",
+  "pages": [
+    "aurora",
+    "opensolar",
+    "helioscope",
+    "---Monitoring---",
+    "enphase",
+    "solaredge",
+    "---Notifications · CRM---",
+    "slack",
+    "hubspot",
+    "pipedrive"
+  ]
+}

@@ -1,0 +1,43 @@
+name: "🐛 Bug report"
+description: Something in the docs site or a published package is broken.
+title: "[bug] <one-line>"
+labels: ["bug"]
+body:
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Where?
+      options:
+        - solar.ashlr.ai (docs site)
+        - "@ashlrai/ahj"
+        - "@ashlrai/glossary"
+        - "@ashlrai/compliance-spec"
+        - GitHub Action / workflow
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: what_happened
+    attributes:
+      label: What happened?
+      description: Steps to reproduce, expected vs actual, version numbers.
+    validations:
+      required: true
+
+  - type: input
+    id: package_version
+    attributes:
+      label: Package version (if applicable)
+      placeholder: "@ashlrai/ahj@0.1.0"
+    validations:
+      required: false
+
+  - type: textarea
+    id: env
+    attributes:
+      label: Environment
+      description: Node version, OS, browser if browser-related.
+      placeholder: "Node 22.10.0, macOS 14.5, Chrome 130"
+    validations:
+      required: false

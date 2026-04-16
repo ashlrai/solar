@@ -1,0 +1,26 @@
+{
+  "slug": "tx-san-antonio",
+  "name": "City of San Antonio",
+  "state": "TX",
+  "county": "Bexar",
+  "city": "San Antonio",
+  "population": 1472000,
+  "contacts": [{ "department": "Development Services Department", "portal_url": "https://www.sa.gov/Directory/Departments/DSD" }],
+  "submission_channels": ["online_portal"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "module_datasheet", "inverter_datasheet", "racking_datasheet", "structural_letter"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 150 }],
+  "rules": [
+    {
+      "id": "tx-sa-001",
+      "permit_type": "residential_pv",
+      "category": "interconnection",
+      "description": "CPS Energy interconnection (municipal utility) — separate rebate program with its own timeline.",
+      "severity": "blocking",
+      "source_url": "https://www.cpsenergy.com",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 8, "last_updated": "2026-04-14", "source": "internal_estimate" }],
+  "solarapp_plus_eligible": false,
+  "last_verified": "2026-04-14"
+}

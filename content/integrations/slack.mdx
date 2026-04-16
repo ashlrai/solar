@@ -1,0 +1,37 @@
+---
+title: Slack
+description: Fan out every Ashlr notification into a Slack channel.
+---
+
+Permit-ready, plan-check rejection, interconnection update, O&M alert —
+all routed to one channel.
+
+## Setup
+
+1. [api.slack.com/apps](https://api.slack.com/apps) → Create app → Incoming Webhooks → mint URL for your channel.
+2. Ashlr → Settings → Integrations → Slack → paste URL + channel name.
+
+That's it.
+
+## Message shape
+
+Severity-colored attachment, kind-based emoji, project deeplink:
+
+```
+📄  Permit package ready · 72% approval
+    va-fairfax-county · 1 issue surfaced · 10-day AHJ median
+    [Open project ↗]
+```
+
+| Kind | Emoji | Severity colors |
+|---|---|---|
+| `permit.assembled` | 📄 | info / warn / success |
+| `permit.approved` | ✅ | success |
+| `permit.rejected` | ❌ | error |
+| `plan_check.comments` | 📝 | warn |
+| `interconnection.status` | 🔌 | info |
+| `om.alert` | 🚨 | warn / error |
+
+## Removing
+
+Settings → Integrations → Slack → Remove. We forget the URL immediately.

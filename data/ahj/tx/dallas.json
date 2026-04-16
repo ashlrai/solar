@@ -1,0 +1,26 @@
+{
+  "slug": "tx-dallas",
+  "name": "City of Dallas",
+  "state": "TX",
+  "county": "Dallas",
+  "city": "Dallas",
+  "population": 1300000,
+  "contacts": [{ "department": "Building Inspection", "portal_url": "https://dallascityhall.com/departments/sustainabledevelopment" }],
+  "submission_channels": ["online_portal"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "module_datasheet", "inverter_datasheet", "racking_datasheet"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 175 }],
+  "rules": [
+    {
+      "id": "tx-dal-001",
+      "permit_type": "residential_pv",
+      "category": "interconnection",
+      "description": "Oncor interconnection application parallel with building permit.",
+      "severity": "blocking",
+      "source_url": "https://www.oncor.com",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 12, "last_updated": "2026-04-14", "source": "internal_estimate" }],
+  "solarapp_plus_eligible": false,
+  "last_verified": "2026-04-14"
+}

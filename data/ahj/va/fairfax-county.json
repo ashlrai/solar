@@ -1,0 +1,66 @@
+{
+  "slug": "va-fairfax-county",
+  "name": "Fairfax County",
+  "state": "VA",
+  "county": "Fairfax",
+  "fips": "51059",
+  "contacts": [
+    {
+      "department": "Land Development Services — Building Plan Review",
+      "portal_url": "https://www.fairfaxcounty.gov/landdevelopment/",
+      "phone": "703-222-0801"
+    }
+  ],
+  "submission_channels": ["online_portal"],
+  "required_documents": [
+    "site_plan",
+    "electrical_diagram_single_line",
+    "module_datasheet",
+    "inverter_datasheet",
+    "structural_letter",
+    "racking_datasheet",
+    "labels_placards"
+  ],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 120, "notes": "Placeholder — verify before first submission" }],
+  "rules": [
+    {
+      "id": "va-fairfax-001",
+      "permit_type": "residential_pv",
+      "category": "structural",
+      "description": "Structural letter stamped by a Virginia-licensed PE is required for all roof-mount arrays.",
+      "severity": "blocking",
+      "source_url": "https://www.fairfaxcounty.gov/landdevelopment/solar",
+      "retrieved_at": "2026-04-14"
+    },
+    {
+      "id": "va-fairfax-002",
+      "permit_type": "residential_pv",
+      "category": "electrical",
+      "description": "Main service panel upgrade or supply-side tap evaluation required if existing busbar + breaker sum exceeds 120% rule (NEC 705.12).",
+      "code_reference": "NEC 705.12",
+      "severity": "likely_rejection",
+      "source_url": "https://www.fairfaxcounty.gov/landdevelopment/",
+      "retrieved_at": "2026-04-14"
+    },
+    {
+      "id": "va-fairfax-003",
+      "permit_type": "residential_pv",
+      "category": "fire",
+      "description": "IRC R324.7 roof access pathways; confirm with Fairfax County Fire Marshal if array covers >33% of roof area.",
+      "severity": "likely_rejection",
+      "source_url": "https://www.fairfaxcounty.gov/fire-ems/",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [
+    {
+      "permit_type": "residential_pv",
+      "median_business_days": 10,
+      "last_updated": "2026-04-14",
+      "source": "internal_estimate"
+    }
+  ],
+  "solarapp_plus_eligible": false,
+  "notes": "SEED — placeholder values. First week's task is to replace every unverified field with cited sources.",
+  "last_verified": "2026-04-14"
+}

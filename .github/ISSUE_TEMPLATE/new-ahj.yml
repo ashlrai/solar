@@ -1,0 +1,72 @@
+name: "🆕 Propose a new AHJ"
+description: An Authority Having Jurisdiction we don't yet cover. We'll add it.
+title: "[ahj-new] <city or county>, <state>"
+labels: ["ahj", "new-jurisdiction"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        We add one AHJ per week, prioritized by community + pilot demand.
+        Help us seed yours.
+
+  - type: input
+    id: name
+    attributes:
+      label: AHJ name
+      placeholder: City of Sacramento
+    validations:
+      required: true
+
+  - type: input
+    id: state
+    attributes:
+      label: State / Province (2-letter)
+      placeholder: CA
+    validations:
+      required: true
+
+  - type: input
+    id: country
+    attributes:
+      label: Country
+      description: US or CA
+      placeholder: US
+    validations:
+      required: true
+
+  - type: input
+    id: portal_url
+    attributes:
+      label: Online permit portal URL
+      placeholder: https://aca-prod.accela.com/sacramento
+    validations:
+      required: true
+
+  - type: dropdown
+    id: solarapp
+    attributes:
+      label: SolarAPP+ eligible?
+      options:
+        - "Yes"
+        - "No"
+        - "Unsure"
+    validations:
+      required: true
+
+  - type: textarea
+    id: known_quirks
+    attributes:
+      label: Known quirks (optional but valuable)
+      description: |
+        What trips up out-of-area installers? Wind / snow load specifics,
+        dual-agency review, utility interconnection in parallel, etc.
+    validations:
+      required: false
+
+  - type: input
+    id: requestor
+    attributes:
+      label: Why this AHJ matters to you
+      description: Optional — helps us prioritize. e.g. "We do 30 installs/yr here"
+    validations:
+      required: false

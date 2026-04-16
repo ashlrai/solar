@@ -1,0 +1,46 @@
+---
+title: Approval probability
+description: How Ashlr scores the likelihood that a permit submission will clear on first review.
+---
+
+## The score
+
+Every permit package the Ashlr product assembles ships with a calibrated
+**approval probability** — a number between 0 and 1 representing the
+likelihood the AHJ approves the submission without a correction notice.
+
+It's the single most useful number in the workflow. Installers fix the issues
+that cost them the most expected probability before submitting; reviewers
+prioritize submissions least likely to bounce.
+
+## How it's computed
+
+Two layers:
+
+1. **Deterministic compliance pass.** Every AHJ rule is evaluated against the
+   project. Severity weights:
+    - `blocking`: -50% per issue
+    - `likely_rejection`: -15% per issue
+    - `advisory`: -2% per issue
+   Floored at 5%, ceilinged at 98%.
+
+2. **LLM judgment overlay.** A reasoning-tier model reviews ambiguous
+   conditions the deterministic pass can't catch (PE stamp jurisdiction,
+   roof-pathway interpretation, etc.). It nudges the score up or down with
+   a written rationale.
+
+## Calibration
+
+We log every (probability, outcome) pair. Calibration plots run quarterly.
+If the score over- or under-predicts in a given AHJ by more than ±10%, the
+rule weights for that AHJ are tuned and a regression test pinned.
+
+## What it doesn't capture
+
+- Reviewer mood, queue depth, jurisdictional politics.
+- Last-minute portal outages.
+- Anything the homeowner adds after submission.
+
+The score is decision support, not a guarantee. The product is structured
+so that a 50% score still produces a fully usable submission package — it
+just flags what to fix first.

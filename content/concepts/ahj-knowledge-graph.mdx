@@ -1,0 +1,86 @@
+---
+title: AHJ knowledge graph
+description: How the open data is shaped, why we re-verify on a 30/90/180-day cadence, and how to extend it.
+---
+
+## The model
+
+An **AHJ** (Authority Having Jurisdiction) is the local body — city, county,
+state — that issues building + electrical permits for a project. There are
+~20,000 of them in the US alone. Each has its own forms, fees, portal,
+amendments, and reviewer quirks.
+
+We codify each one as a single JSON file at:
+
+```
+data/ahj/<state-or-province-slug>/<jurisdiction-slug>.json
+```
+
+The schema lives in [`@ashlrai/ahj`](https://www.npmjs.com/package/@ashlrai/ahj)
+as the `Ahj` type. The shape is deliberately simple:
+
+- `slug`, `name`, `state`, `country`, `population`
+- `contacts[]` — department, portal URL, phone
+- `submission_channels[]` — `online_portal` · `solarapp_plus` · `email` · `mail` · `in_person`
+- `required_documents[]` — semantic strings: `site_plan`, `electrical_diagram_single_line`, etc.
+- `fees[]` — per permit type
+- `rules[]` — the heart of it
+- `turnaround[]` — median + p90 business days
+- `solarapp_plus_eligible` — boolean
+- `notes`, `last_verified`
+
+## Rules
+
+Every rule has:
+
+| Field | Meaning |
+|---|---|
+| `id` | Stable, e.g. `va-fairfax-001` |
+| `permit_type` | Which permit it applies to |
+| `category` | structural / electrical / fire / setback / equipment / labeling / documentation / interconnection |
+| `description` | Human-readable, no jargon-only |
+| `code_reference` | NEC / IRC / IBC / OESC clause if applicable |
+| `severity` | `blocking` · `likely_rejection` · `advisory` |
+| `source_url` | Live URL we can fetch with HEAD |
+| `retrieved_at` | ISO date confirmed |
+
+## Re-verification cadence
+
+| Tier | Cadence | AHJs |
+|---|---|---|
+| Top-10 | 30 days | High-traffic jurisdictions |
+| Top-50 | 90 days | Coverage backbone |
+| Long-tail | 180 days | Everything else |
+
+The `verify-ahj` GitHub workflow runs monthly, HEAD-checks every
+`source_url`, and posts a report to `reports/`. Pages on this site that age
+past their tier get an amber freshness badge with a one-click "Refresh"
+issue link.
+
+## Extending
+
+Add a new jurisdiction:
+
+```bash
+mkdir -p data/ahj/ny
+cat > data/ahj/ny/long-island-city.json <<'EOF'
+{
+  "slug": "ny-long-island-city",
+  "name": "Long Island City",
+  "state": "NY",
+  "country": "US",
+  ...
+}
+EOF
+pnpm --filter @ashlrai/ahj generate
+pnpm --filter @ashlrai/ahj test
+```
+
+Or: open a [new AHJ issue](https://github.com/ashlrai/solar/issues/new?template=new-ahj.yml)
+and let us add it.
+
+## Why open?
+
+- **Truth compounds when shared.** Public information should be machine-readable.
+- **Drift catches faster.** Permit expediters see updates Monday morning; our PR queue catches them Monday afternoon.
+- **Our moat is the agent loop**, not the rules. The rules are table stakes.

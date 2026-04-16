@@ -1,0 +1,39 @@
+---
+title: Rate limits
+description: Default policy + headers + how to lift.
+---
+
+## Default policy
+
+| Bucket | Limit | Window |
+|---|---|---|
+| AI agent endpoints (`/api/agent`, `/api/permit-package`, `/api/plan-check`, `/api/design-review`, `/api/interconnection`, `/api/pe-letter`, `/api/status-poll`) | 20 requests / IP | 60 seconds |
+| Webhook intake (`/api/webhooks/*`, `/api/om/ingest`) | 600 requests / IP | 60 seconds |
+| Public demo (`/api/permit-package` from unauthenticated IPs) | 30 requests / IP | 60 seconds |
+
+## Headers
+
+Every response includes:
+
+```http
+x-ratelimit-remaining: 19
+x-ratelimit-reset: 60
+```
+
+When you exceed the limit:
+
+```http
+HTTP/1.1 429 Too Many Requests
+x-ratelimit-remaining: 0
+x-ratelimit-reset: 42
+Content-Type: application/json
+
+{ "error": "rate limited", "retry_after_seconds": 42 }
+```
+
+Honor `retry_after_seconds`; do not hammer.
+
+## Raising limits
+
+Email [partners@ashlr.ai](mailto:partners@ashlr.ai) with your org id and
+expected sustained QPS. We typically raise within one business day.

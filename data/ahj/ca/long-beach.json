@@ -1,0 +1,26 @@
+{
+  "slug": "ca-long-beach",
+  "name": "City of Long Beach",
+  "state": "CA",
+  "county": "Los Angeles",
+  "city": "Long Beach",
+  "population": 456000,
+  "contacts": [{ "department": "Long Beach Development Services", "portal_url": "https://www.longbeach.gov/lbds" }],
+  "submission_channels": ["online_portal", "solarapp_plus"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "module_datasheet", "inverter_datasheet", "racking_datasheet"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 285 }],
+  "rules": [
+    {
+      "id": "ca-lb-001",
+      "permit_type": "residential_pv",
+      "category": "interconnection",
+      "description": "Long Beach has its own municipal utility review for parts of the city (Long Beach Energy).",
+      "severity": "blocking",
+      "source_url": "https://www.longbeach.gov/energy",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 4, "last_updated": "2026-04-14", "source": "SolarAPP+ coverage" }],
+  "solarapp_plus_eligible": true,
+  "last_verified": "2026-04-14"
+}

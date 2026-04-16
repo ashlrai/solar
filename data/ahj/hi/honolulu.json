@@ -1,0 +1,35 @@
+{
+  "slug": "hi-honolulu",
+  "name": "City & County of Honolulu",
+  "state": "HI",
+  "county": "Honolulu",
+  "city": "Honolulu",
+  "population": 350000,
+  "contacts": [{ "department": "Department of Planning and Permitting", "portal_url": "https://www.honoluludpp.org" }],
+  "submission_channels": ["online_portal"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "module_datasheet", "inverter_datasheet", "structural_letter", "wind_load_calculations"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 310 }],
+  "rules": [
+    {
+      "id": "hi-hnl-001",
+      "permit_type": "residential_pv",
+      "category": "structural",
+      "description": "Hurricane wind exposure; stainless fasteners required in coastal zones.",
+      "severity": "blocking",
+      "source_url": "https://www.honoluludpp.org",
+      "retrieved_at": "2026-04-14"
+    },
+    {
+      "id": "hi-hnl-002",
+      "permit_type": "residential_pv",
+      "category": "interconnection",
+      "description": "Hawaiian Electric interconnection; storage-first market — pure-export queues are slow.",
+      "severity": "blocking",
+      "source_url": "https://www.hawaiianelectric.com",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 28, "last_updated": "2026-04-14", "source": "internal_estimate" }],
+  "solarapp_plus_eligible": false,
+  "last_verified": "2026-04-14"
+}

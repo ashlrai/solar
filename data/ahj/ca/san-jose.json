@@ -1,0 +1,26 @@
+{
+  "slug": "ca-san-jose",
+  "name": "City of San Jose",
+  "state": "CA",
+  "county": "Santa Clara",
+  "city": "San Jose",
+  "population": 1013000,
+  "contacts": [{ "department": "Planning, Building & Code Enforcement", "portal_url": "https://www.sanjoseca.gov/your-government/departments/planning-building-code-enforcement" }],
+  "submission_channels": ["online_portal", "solarapp_plus"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "module_datasheet", "inverter_datasheet", "racking_datasheet"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 310 }],
+  "rules": [
+    {
+      "id": "ca-sj-001",
+      "permit_type": "residential_pv",
+      "category": "electrical",
+      "description": "PG&E interconnection application + Title 24 Part 6 PV sizing rules.",
+      "severity": "blocking",
+      "source_url": "https://www.sanjoseca.gov",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 3, "last_updated": "2026-04-14", "source": "SolarAPP+ coverage" }],
+  "solarapp_plus_eligible": true,
+  "last_verified": "2026-04-14"
+}

@@ -1,0 +1,24 @@
+{
+  "slug": "va-arlington-county",
+  "name": "Arlington County",
+  "state": "VA",
+  "county": "Arlington",
+  "contacts": [{ "department": "Inspection Services Division", "portal_url": "https://permits.arlingtonva.us" }],
+  "submission_channels": ["online_portal"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "module_datasheet", "inverter_datasheet", "structural_letter", "labels_placards"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 140 }],
+  "rules": [
+    {
+      "id": "va-arl-001",
+      "permit_type": "residential_pv",
+      "category": "fire",
+      "description": "Arlington Fire Marshal review required for arrays > 10 kW.",
+      "severity": "likely_rejection",
+      "source_url": "https://www.arlingtonva.us",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 11, "last_updated": "2026-04-14", "source": "internal_estimate" }],
+  "solarapp_plus_eligible": false,
+  "last_verified": "2026-04-14"
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "ca-qc-montreal",
+  "name": "Ville de Montréal",
+  "state": "QC",
+  "country": "CA",
+  "city": "Montréal",
+  "population": 1763000,
+  "contacts": [{ "department": "Service de l'urbanisme et de la mobilité", "portal_url": "https://montreal.ca/" }],
+  "submission_channels": ["online_portal", "in_person"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "module_datasheet", "inverter_datasheet", "structural_letter", "hydro_quebec_mesurage_net_request"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 200, "notes": "CAD ~270" }],
+  "rules": [
+    {
+      "id": "ca-qc-mtl-001",
+      "permit_type": "residential_pv",
+      "category": "interconnection",
+      "description": "Hydro-Québec Mesurage net / auto-production — separate application with its own timeline.",
+      "severity": "blocking",
+      "source_url": "https://www.hydroquebec.com/residential/customer-space/production/net-metering.html",
+      "retrieved_at": "2026-04-14"
+    },
+    {
+      "id": "ca-qc-mtl-002",
+      "permit_type": "residential_pv",
+      "category": "structural",
+      "description": "Code de construction du Québec chapitre Bâtiment; ingénieur membre OIQ required for PE stamp.",
+      "severity": "blocking",
+      "source_url": "https://www.rbq.gouv.qc.ca",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 24, "last_updated": "2026-04-14", "source": "internal_estimate" }],
+  "solarapp_plus_eligible": false,
+  "notes": "Documentation often bilingual; fr-CA UI supported via i18n scaffold.",
+  "last_verified": "2026-04-14"
+}

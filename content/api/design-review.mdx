@@ -1,0 +1,39 @@
+---
+title: POST /api/design-review
+description: Pre-submission design review — likely-reject scan before package assembly.
+---
+
+Run the design through the reasoning agent before assembling the permit
+package. Useful when an installer wants to fix issues at design time rather
+than after a permit-package run.
+
+## Request
+
+```http
+POST /api/design-review
+x-ashlr-api-key: ashlr_live_…
+
+{ "project": { ... }, "ahj_slug": "va-fairfax-county" }
+```
+
+## Response
+
+```json
+{
+  "overall_grade": "yellow",
+  "summary": "Roof-mount on a tile roof in Fairfax — PE letter likely required.",
+  "findings": [
+    {
+      "category": "structural",
+      "severity": "likely_rework",
+      "title": "Tile-roof attachment density",
+      "detail": "IronRidge XR100 with 400W modules requires 32\" max on-center attachments in this wind exposure.",
+      "remediation": "Adjust attachment spec or escalate to PE."
+    }
+  ],
+  "provider": "anthropic",
+  "model": "claude-opus-4-6"
+}
+```
+
+`overall_grade` is one of `green` | `yellow` | `red`.

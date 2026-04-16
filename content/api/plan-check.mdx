@@ -1,0 +1,62 @@
+---
+title: POST /api/plan-check
+description: Draft a structured response to an AHJ plan-check rejection.
+---
+
+Two modes:
+
+1. **JSON** — pass the reviewer comments as text.
+2. **Multipart** — upload the rejection-letter PDF; we extract reviewer
+   comments via Claude Vision before drafting the reply.
+
+## JSON mode
+
+```http
+POST /api/plan-check
+Content-Type: application/json
+x-ashlr-api-key: ashlr_live_…
+
+{
+  "ahj_slug": "ca-los-angeles-city",
+  "project": { ... },
+  "plan_check_letter_text": "1. HOLD — Title 24 compliance documentation missing. ..."
+}
+```
+
+## Multipart (PDF) mode
+
+```bash
+curl https://app.ashlr.ai/api/plan-check \
+  -H "x-ashlr-api-key: …" \
+  -F "ahj_slug=ca-los-angeles-city" \
+  -F 'project=<(jq -c . < project.json)' \
+  -F "plan_check_pdf=@rejection-letter.pdf"
+```
+
+## Response
+
+```json
+{
+  "extracted": {
+    "comments": [
+      { "label": "1", "severity": "hold", "text": "Title 24 compliance documentation missing." }
+    ]
+  },
+  "reply": {
+    "reply_markdown": "## Response to Plan-Check Comments\n\n1. ...",
+    "addressed_issues": ["1", "2", "3"],
+    "unresolved_issues": [],
+    "provider": "anthropic"
+  }
+}
+```
+
+The reply markdown is structured `## Response to Plan-Check Comments`,
+`## Attachments`, `## Unresolved / Requires Installer Action`. Paste it
+into the AHJ portal as your response.
+
+## Guarantees
+
+- Never invents code references.
+- Preserves reviewer comment numbering.
+- Anything that requires installer input lands under `## Unresolved`, never silently elided.

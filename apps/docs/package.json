@@ -1,0 +1,36 @@
+{
+  "name": "@ashlrai/docs",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "predev": "fumadocs-mdx",
+    "prebuild": "fumadocs-mdx",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "fumadocs-mdx && tsc --noEmit",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@ashlrai/ahj": "workspace:*",
+    "@ashlrai/compliance-spec": "workspace:*",
+    "@ashlrai/glossary": "workspace:*",
+    "fumadocs-core": "15.8.5",
+    "fumadocs-mdx": "11.10.1",
+    "fumadocs-ui": "15.8.5",
+    "next": "15.1.6",
+    "react": "19.2.5",
+    "react-dom": "19.2.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.2.2",
+    "@types/mdx": "2.0.13",
+    "@types/node": "22.10.5",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "postcss": "8.5.1",
+    "tailwindcss": "4.2.2",
+    "typescript": "5.7.3"
+  }
+}

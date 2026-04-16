@@ -1,0 +1,19 @@
+name: "✨ Feature request"
+description: Suggest something for the docs site, packages, or knowledge graph.
+title: "[feat] <one-line>"
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What would you like?
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why? Who benefits?
+      description: Concrete user / installer / partner story is best.
+    validations:
+      required: false

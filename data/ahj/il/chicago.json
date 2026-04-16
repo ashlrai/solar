@@ -1,0 +1,35 @@
+{
+  "slug": "il-chicago",
+  "name": "City of Chicago",
+  "state": "IL",
+  "county": "Cook",
+  "city": "Chicago",
+  "population": 2665000,
+  "contacts": [{ "department": "Department of Buildings", "portal_url": "https://www.chicago.gov/buildings" }],
+  "submission_channels": ["online_portal"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "module_datasheet", "inverter_datasheet", "structural_letter"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 230 }],
+  "rules": [
+    {
+      "id": "il-chi-001",
+      "permit_type": "residential_pv",
+      "category": "structural",
+      "description": "Ground snow load 25-30 psf; Chicago Building Code amendments on top of IBC.",
+      "severity": "blocking",
+      "source_url": "https://www.chicago.gov",
+      "retrieved_at": "2026-04-14"
+    },
+    {
+      "id": "il-chi-002",
+      "permit_type": "residential_pv",
+      "category": "interconnection",
+      "description": "ComEd interconnection + Illinois Shines (Adjustable Block Program) for SRECs.",
+      "severity": "blocking",
+      "source_url": "https://illinoisshines.com",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 22, "last_updated": "2026-04-14", "source": "internal_estimate" }],
+  "solarapp_plus_eligible": false,
+  "last_verified": "2026-04-14"
+}

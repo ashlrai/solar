@@ -1,0 +1,19 @@
+---
+title: HelioScope
+description: C&I-focused design import for commercial permit flows.
+---
+
+HelioScope leans commercial. Ashlr's commercial overlay (PE-stamped SLD,
+load-impact studies > 100 kW, transformer notes > 250 kW) catches the
+issues that rejection-prone projects hit.
+
+## Setup
+
+1. HelioScope account manager mints an API key.
+2. Ashlr → Settings → Integrations → paste key.
+3. HelioScope webhook at `https://app.ashlr.ai/api/webhooks/helioscope` for
+   `design.finalized` events.
+
+See [/api/webhooks/helioscope](/api/webhooks/helioscope) and
+[/concepts/compliance-engine](/concepts/compliance-engine) for the
+commercial overlay rules.

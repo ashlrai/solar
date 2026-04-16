@@ -1,0 +1,44 @@
+---
+title: POST /api/pe-letter
+description: Draft a structural letter for a Professional Engineer to review and stamp.
+---
+
+Generates a complete draft letter suitable for a PE to review, edit, stamp,
+and sign. **We do not replace the PE.** The output is a structured starting
+point that eliminates ~80% of the PE's typing time.
+
+## Request
+
+```http
+POST /api/pe-letter
+x-ashlr-api-key: ashlr_live_…
+
+{ "project": { ... }, "ahj_slug": "va-fairfax-county" }
+```
+
+## Response
+
+```json
+{
+  "pe_name_placeholder": "[PE FULL NAME]",
+  "pe_license_placeholder": "[STATE PE #]",
+  "date": "2026-04-16",
+  "subject": "Structural letter — Jane Homeowner",
+  "project_summary": "...",
+  "scope": "...",
+  "wind_load": "120 mph, Exposure C, ASCE 7-22",
+  "snow_load": "30 psf ground snow",
+  "dead_load": "5.5 psf",
+  "attachment_spec": "L-foot lag bolts on 32\" centers ...",
+  "code_references": ["IRC 2021 R301.2.1.4", "ASCE 7-22 Chapter 27"],
+  "certification_statement": "...",
+  "signature_block": "...",
+  "disclaimer": "DRAFT ONLY. Requires PE review and stamp before submission to any AHJ."
+}
+```
+
+## Hard rules
+
+- PE name + license number are always placeholders. We never invent them.
+- AHJ-specific code cycles are filled from the AHJ's known requirements.
+- The `disclaimer` field is mandatory. UI must surface it prominently.

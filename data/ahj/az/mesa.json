@@ -1,0 +1,26 @@
+{
+  "slug": "az-mesa",
+  "name": "City of Mesa",
+  "state": "AZ",
+  "county": "Maricopa",
+  "city": "Mesa",
+  "population": 510000,
+  "contacts": [{ "department": "Development Services", "portal_url": "https://www.mesaaz.gov/business/development-services" }],
+  "submission_channels": ["online_portal", "solarapp_plus"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "module_datasheet", "inverter_datasheet"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 165 }],
+  "rules": [
+    {
+      "id": "az-mesa-001",
+      "permit_type": "residential_pv",
+      "category": "interconnection",
+      "description": "Mesa municipal utility or SRP interconnection depending on service address.",
+      "severity": "blocking",
+      "source_url": "https://www.mesaaz.gov",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 3, "last_updated": "2026-04-14", "source": "SolarAPP+ coverage" }],
+  "solarapp_plus_eligible": true,
+  "last_verified": "2026-04-14"
+}

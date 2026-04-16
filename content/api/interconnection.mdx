@@ -1,0 +1,36 @@
+---
+title: POST /api/interconnection
+description: Draft a utility-side interconnection package.
+---
+
+Generate the application narrative, disconnect labeling spec, required-doc
+list, and timeline estimate for the utility serving the project's address.
+
+## Request
+
+```http
+POST /api/interconnection
+x-ashlr-api-key: ashlr_live_…
+
+{ "project": { ... }, "ahj_slug": "tx-austin" }
+```
+
+## Response
+
+```json
+{
+  "utility_name": "Austin Energy",
+  "application_narrative": "...",
+  "disconnect_labeling": ["AC DISCONNECT — visible, lockable", "..."],
+  "required_documents": ["AE interconnection app", "..."],
+  "estimated_timeline_days": 28,
+  "warnings": ["Austin Energy is municipal — file in parallel with ABC, never sequential."],
+  "provider": "anthropic",
+  "model": "claude-opus-4-6"
+}
+```
+
+## Notes
+
+- Utility hint is per-AHJ (`src/lib/agents/interconnectionAgent.ts` in the closed product).
+- For municipal utilities (LADWP, SMUD, AE, JEA, OUC, Long Beach Energy, Hawaiian Electric), the warning explicitly calls out parallel-track filing.

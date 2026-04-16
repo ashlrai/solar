@@ -1,0 +1,26 @@
+{
+  "slug": "tx-el-paso",
+  "name": "City of El Paso",
+  "state": "TX",
+  "county": "El Paso",
+  "city": "El Paso",
+  "population": 678000,
+  "contacts": [{ "department": "Planning & Inspections", "portal_url": "https://www.elpasotexas.gov/planning-and-inspections" }],
+  "submission_channels": ["online_portal"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "module_datasheet", "inverter_datasheet"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 140 }],
+  "rules": [
+    {
+      "id": "tx-elp-001",
+      "permit_type": "residential_pv",
+      "category": "interconnection",
+      "description": "El Paso Electric interconnection application — higher altitude exposure category considerations.",
+      "severity": "blocking",
+      "source_url": "https://www.epelectric.com",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 10, "last_updated": "2026-04-14", "source": "internal_estimate" }],
+  "solarapp_plus_eligible": false,
+  "last_verified": "2026-04-14"
+}

@@ -1,0 +1,48 @@
+{
+  "slug": "ca-on-toronto",
+  "name": "City of Toronto",
+  "state": "ON",
+  "country": "CA",
+  "city": "Toronto",
+  "population": 2794000,
+  "contacts": [
+    { "department": "Toronto Building", "portal_url": "https://www.toronto.ca/services-payments/building-construction/" }
+  ],
+  "submission_channels": ["online_portal"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "module_datasheet", "inverter_datasheet", "structural_letter", "ecra_esa_notification"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 385, "notes": "CAD ~520; verify current rate" }],
+  "rules": [
+    {
+      "id": "ca-on-tor-001",
+      "permit_type": "residential_pv",
+      "category": "electrical",
+      "description": "ECRA/ESA notification + connection authorization required (Ontario Electrical Safety Code rule 84).",
+      "code_reference": "OESC 84",
+      "severity": "blocking",
+      "source_url": "https://esasafe.com/",
+      "retrieved_at": "2026-04-14"
+    },
+    {
+      "id": "ca-on-tor-002",
+      "permit_type": "residential_pv",
+      "category": "interconnection",
+      "description": "Toronto Hydro microFIT/net metering application parallel with permit.",
+      "severity": "blocking",
+      "source_url": "https://www.torontohydro.com",
+      "retrieved_at": "2026-04-14"
+    },
+    {
+      "id": "ca-on-tor-003",
+      "permit_type": "residential_pv",
+      "category": "structural",
+      "description": "OBC snow load (1-in-50 year ground snow 1.9 kPa) + stamped letter by P.Eng licensed in Ontario.",
+      "severity": "blocking",
+      "source_url": "https://www.toronto.ca/services-payments/building-construction/",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 14, "last_updated": "2026-04-14", "source": "internal_estimate" }],
+  "solarapp_plus_eligible": false,
+  "notes": "Canadian AHJ. Wind/snow loads per OBC; electrical inspection by ESA (separate from building permit).",
+  "last_verified": "2026-04-14"
+}

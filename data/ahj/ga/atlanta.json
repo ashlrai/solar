@@ -1,0 +1,26 @@
+{
+  "slug": "ga-atlanta",
+  "name": "City of Atlanta",
+  "state": "GA",
+  "county": "Fulton",
+  "city": "Atlanta",
+  "population": 498000,
+  "contacts": [{ "department": "Office of Buildings", "portal_url": "https://www.atlantaga.gov" }],
+  "submission_channels": ["online_portal"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "module_datasheet", "inverter_datasheet", "structural_letter"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 180 }],
+  "rules": [
+    {
+      "id": "ga-atl-001",
+      "permit_type": "residential_pv",
+      "category": "interconnection",
+      "description": "Georgia Power interconnection (monopoly utility); net metering cap rules apply.",
+      "severity": "blocking",
+      "source_url": "https://www.georgiapower.com",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 14, "last_updated": "2026-04-14", "source": "internal_estimate" }],
+  "solarapp_plus_eligible": false,
+  "last_verified": "2026-04-14"
+}

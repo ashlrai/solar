@@ -1,0 +1,88 @@
+name: "🛠 Update an AHJ rule"
+description: A rule we have is out of date or incorrect. Tell us what changed.
+title: "[ahj] <slug>: <one-line summary>"
+labels: ["ahj", "data"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for catching this. After you submit, a maintainer will turn this
+        into a PR within 3 business days (1 day for top-10 jurisdictions).
+
+  - type: input
+    id: slug
+    attributes:
+      label: AHJ slug
+      description: Find it at solar.ashlr.ai/ahj-handbook — e.g. `va-fairfax-county`
+      placeholder: ca-los-angeles-city
+    validations:
+      required: true
+
+  - type: input
+    id: rule_id
+    attributes:
+      label: Rule id (if editing existing)
+      description: e.g. `ca-lac-001` — leave blank if you're adding a new rule
+      placeholder: ca-lac-001
+    validations:
+      required: false
+
+  - type: dropdown
+    id: change_type
+    attributes:
+      label: What kind of change?
+      options:
+        - Rule wording is wrong
+        - Severity is wrong (blocking / likely_rejection / advisory)
+        - Source URL moved or 404s
+        - Rule was repealed / superseded
+        - Adding a new rule
+        - Fee or turnaround is stale
+    validations:
+      required: true
+
+  - type: textarea
+    id: what_changed
+    attributes:
+      label: What's the correction?
+      description: |
+        Be specific. If the AHJ updated wording, paste the new wording.
+        If a portal moved, give the new URL.
+      placeholder: |
+        The Fairfax structural-letter rule now requires a wet stamp — they
+        no longer accept digital signatures as of 2026-04-01.
+    validations:
+      required: true
+
+  - type: input
+    id: source_url
+    attributes:
+      label: Source URL (required)
+      description: A live URL we can fetch that confirms the change
+      placeholder: https://www.fairfaxcounty.gov/landdevelopment/solar
+    validations:
+      required: true
+
+  - type: input
+    id: retrieved_at
+    attributes:
+      label: Date you confirmed this (ISO YYYY-MM-DD)
+      placeholder: 2026-04-16
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else?
+      description: Screenshot, expediter quote, ticket number — whatever helps us verify.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: License
+      options:
+        - label: I confirm my contribution may be released under CC-BY-4.0.
+          required: true

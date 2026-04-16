@@ -1,0 +1,51 @@
+---
+title: Authentication
+description: API keys + webhook signatures.
+---
+
+## API keys
+
+The open packages (`@ashlrai/*`) need no auth — they ship the data inline.
+
+For the **Ashlr product API** at `app.ashlr.ai`, mint an org API key from
+[app.ashlr.ai/settings/api-keys](https://app.ashlr.ai/settings/api-keys) (admin role required). Keys look
+like `ashlr_live_…` or `ashlr_test_…`.
+
+Send on every request:
+
+```http
+x-ashlr-api-key: ashlr_live_abc123…
+```
+
+Rotate freely. Revoked keys stop working immediately.
+
+## Webhook signatures
+
+When Ashlr **sends** a webhook to your endpoint, the body is signed:
+
+```http
+x-ashlr-api-key: ashlr_live_…
+x-ashlr-signature: sha256=<HMAC-SHA-256 of body, hex>
+```
+
+When you **send** a webhook into Ashlr (e.g. from Aurora / OpenSolar /
+HelioScope), the same headers are required. Compute the HMAC over the raw
+body using the webhook secret you got at key-mint time:
+
+```ts
+import { createHmac, timingSafeEqual } from "node:crypto";
+
+function verify(body: string, header: string, secret: string): boolean {
+  const expected = "sha256=" + createHmac("sha256", secret).update(body).digest("hex");
+  const a = Buffer.from(expected);
+  const b = Buffer.from(header.trim());
+  return a.length === b.length && timingSafeEqual(a, b);
+}
+```
+
+Unsigned webhooks are rejected with `401`.
+
+## Scopes
+
+API keys today are all-or-nothing per org. Per-scope keys (e.g. read-only,
+om-ingest-only) are on the roadmap.

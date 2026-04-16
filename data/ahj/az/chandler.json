@@ -1,0 +1,26 @@
+{
+  "slug": "az-chandler",
+  "name": "City of Chandler",
+  "state": "AZ",
+  "county": "Maricopa",
+  "city": "Chandler",
+  "population": 280000,
+  "contacts": [{ "department": "Development Services", "portal_url": "https://www.chandleraz.gov" }],
+  "submission_channels": ["online_portal", "solarapp_plus"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "module_datasheet", "inverter_datasheet"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 170 }],
+  "rules": [
+    {
+      "id": "az-cha-001",
+      "permit_type": "residential_pv",
+      "category": "interconnection",
+      "description": "SRP interconnection typical; verify service territory.",
+      "severity": "blocking",
+      "source_url": "https://www.srpnet.com",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 3, "last_updated": "2026-04-14", "source": "SolarAPP+ coverage" }],
+  "solarapp_plus_eligible": true,
+  "last_verified": "2026-04-14"
+}

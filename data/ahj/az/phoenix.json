@@ -1,0 +1,36 @@
+{
+  "slug": "az-phoenix",
+  "name": "City of Phoenix",
+  "state": "AZ",
+  "county": "Maricopa",
+  "city": "Phoenix",
+  "population": 1608000,
+  "contacts": [
+    { "department": "Planning & Development Department — PV", "portal_url": "https://www.phoenix.gov/pdd" }
+  ],
+  "submission_channels": ["online_portal", "solarapp_plus"],
+  "required_documents": [
+    "application_form",
+    "site_plan",
+    "electrical_diagram_single_line",
+    "module_datasheet",
+    "inverter_datasheet",
+    "racking_datasheet",
+    "labels_placards"
+  ],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 175 }],
+  "rules": [
+    {
+      "id": "az-phx-001",
+      "permit_type": "residential_pv",
+      "category": "electrical",
+      "description": "APS or SRP interconnection pre-approval required before final inspection.",
+      "severity": "blocking",
+      "source_url": "https://www.phoenix.gov/pdd",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 2, "last_updated": "2026-04-14", "source": "SolarAPP+ coverage" }],
+  "solarapp_plus_eligible": true,
+  "last_verified": "2026-04-14"
+}

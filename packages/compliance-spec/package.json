@@ -1,0 +1,42 @@
+{
+  "name": "@ashlrai/compliance-spec",
+  "version": "0.1.0",
+  "description": "NEC, IRC, IBC, OESC clause references with code-cycle metadata. Used by Ashlr Solar's compliance engine.",
+  "license": "MIT",
+  "homepage": "https://solar.ashlr.ai",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashlrai/solar.git",
+    "directory": "packages/compliance-spec"
+  },
+  "bugs": "https://github.com/ashlrai/solar/issues",
+  "author": "Ashlr.ai <founders@ashlr.ai>",
+  "keywords": ["solar", "NEC", "IRC", "IBC", "code", "compliance"],
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": ["dist", "README.md"],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@types/node": "22.10.5",
+    "tsup": "8.3.5",
+    "typescript": "5.7.3",
+    "vitest": "2.1.8"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

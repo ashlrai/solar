@@ -1,0 +1,59 @@
+{
+  "slug": "tx-austin",
+  "name": "City of Austin",
+  "state": "TX",
+  "county": "Travis",
+  "city": "Austin",
+  "population": 974000,
+  "contacts": [
+    {
+      "department": "Development Services Department — Residential Review",
+      "portal_url": "https://abc.austintexas.gov/web/permit/public-search-other",
+      "phone": "512-978-4000"
+    },
+    {
+      "department": "Austin Energy Green Building — Solar",
+      "portal_url": "https://austinenergy.com/energy-efficiency/solar-solutions"
+    }
+  ],
+  "submission_channels": ["online_portal"],
+  "required_documents": [
+    "austin_solar_application",
+    "site_plan",
+    "electrical_diagram_single_line",
+    "module_datasheet",
+    "inverter_datasheet",
+    "racking_datasheet",
+    "structural_letter",
+    "austin_energy_interconnection_app"
+  ],
+  "fees": [
+    { "permit_type": "residential_pv", "amount_usd": 210, "notes": "Combined building + electrical; verify 2026 rates." }
+  ],
+  "rules": [
+    {
+      "id": "tx-atx-001",
+      "permit_type": "residential_pv",
+      "category": "interconnection",
+      "description": "Austin Energy interconnection application required in parallel; AE disconnect labeling per AE Solar Standards.",
+      "severity": "blocking",
+      "source_url": "https://austinenergy.com/green-power/solar/interconnection-requirements",
+      "retrieved_at": "2026-04-14"
+    },
+    {
+      "id": "tx-atx-002",
+      "permit_type": "residential_pv",
+      "category": "fire",
+      "description": "Setbacks per 2021 IRC R324 + Austin amendments; 36\" ridge pathway on hipped roofs with array.",
+      "severity": "blocking",
+      "source_url": "https://library.municode.com/tx/austin/codes/code_of_ordinances",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [
+    { "permit_type": "residential_pv", "median_business_days": 7, "last_updated": "2026-04-14", "source": "internal_estimate" }
+  ],
+  "solarapp_plus_eligible": false,
+  "notes": "Austin Energy is a municipal utility — interconnection runs alongside building permit, not after. Parallelize.",
+  "last_verified": "2026-04-14"
+}

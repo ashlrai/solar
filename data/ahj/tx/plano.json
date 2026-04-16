@@ -1,0 +1,26 @@
+{
+  "slug": "tx-plano",
+  "name": "City of Plano",
+  "state": "TX",
+  "county": "Collin",
+  "city": "Plano",
+  "population": 290000,
+  "contacts": [{ "department": "Building Inspections", "portal_url": "https://www.plano.gov" }],
+  "submission_channels": ["online_portal"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "module_datasheet", "inverter_datasheet"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 155 }],
+  "rules": [
+    {
+      "id": "tx-plo-001",
+      "permit_type": "residential_pv",
+      "category": "interconnection",
+      "description": "Oncor interconnection; Plano HOA notifications common prior to permit.",
+      "severity": "advisory",
+      "source_url": "https://www.plano.gov",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 9, "last_updated": "2026-04-14", "source": "internal_estimate" }],
+  "solarapp_plus_eligible": false,
+  "last_verified": "2026-04-14"
+}

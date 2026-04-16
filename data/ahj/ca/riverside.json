@@ -1,0 +1,26 @@
+{
+  "slug": "ca-riverside",
+  "name": "City of Riverside",
+  "state": "CA",
+  "county": "Riverside",
+  "city": "Riverside",
+  "population": 317000,
+  "contacts": [{ "department": "Community Development", "portal_url": "https://riversideca.gov/cedd" }],
+  "submission_channels": ["online_portal", "solarapp_plus"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "module_datasheet", "inverter_datasheet"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 240 }],
+  "rules": [
+    {
+      "id": "ca-riv-001",
+      "permit_type": "residential_pv",
+      "category": "interconnection",
+      "description": "Riverside Public Utilities (municipal) interconnection required.",
+      "severity": "blocking",
+      "source_url": "https://riversideca.gov/utilities",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 4, "last_updated": "2026-04-14", "source": "SolarAPP+ coverage" }],
+  "solarapp_plus_eligible": true,
+  "last_verified": "2026-04-14"
+}

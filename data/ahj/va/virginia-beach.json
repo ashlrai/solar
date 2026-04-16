@@ -1,0 +1,25 @@
+{
+  "slug": "va-virginia-beach",
+  "name": "City of Virginia Beach",
+  "state": "VA",
+  "city": "Virginia Beach",
+  "population": 457000,
+  "contacts": [{ "department": "Permits & Inspections", "portal_url": "https://www.vbgov.com" }],
+  "submission_channels": ["online_portal"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "module_datasheet", "inverter_datasheet", "structural_letter"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 135 }],
+  "rules": [
+    {
+      "id": "va-vb-001",
+      "permit_type": "residential_pv",
+      "category": "structural",
+      "description": "Coastal wind exposure (Category D) typical; wind loads higher than inland VA counties.",
+      "severity": "blocking",
+      "source_url": "https://www.vbgov.com",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 12, "last_updated": "2026-04-14", "source": "internal_estimate" }],
+  "solarapp_plus_eligible": false,
+  "last_verified": "2026-04-14"
+}

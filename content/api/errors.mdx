@@ -1,0 +1,33 @@
+---
+title: Errors
+description: Status codes, error shapes, request IDs.
+---
+
+All 4xx and 5xx responses include a JSON body with a single `error` field:
+
+```json
+{ "error": "invalid api key" }
+```
+
+## Status codes
+
+| Code | Meaning | Action |
+|---|---|---|
+| `400` | Bad request — payload failed validation | Inspect `error`; fix client |
+| `401` | Auth — missing / invalid key or signature | Verify `x-ashlr-api-key` and `x-ashlr-signature` |
+| `403` | Forbidden — key valid but lacks scope | Mint a key with the right scope |
+| `404` | Not found — resource doesn't exist | Verify the slug / id |
+| `409` | Conflict — idempotent operation, duplicate | Safe to ignore; previous succeeded |
+| `429` | Rate limited | Honor `x-ratelimit-reset` (seconds) |
+| `500` | Internal | Correlate via `x-request-id`; report if persistent |
+| `503` | Upstream — model provider 5xx'd | Retry with exponential backoff up to 3× |
+
+## Correlation
+
+Every response sets `x-request-id`. Include it when reporting bugs.
+
+## Idempotency
+
+Mutating endpoints accept an `Idempotency-Key` header. Same key + same
+payload returns the original response (the row in `agent_runs` is the
+de-dupe target).

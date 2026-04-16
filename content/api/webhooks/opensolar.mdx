@@ -1,0 +1,20 @@
+---
+title: Webhook · OpenSolar
+description: Fire proposal.accepted from OpenSolar to start the permit pipeline.
+---
+
+```
+POST https://app.ashlr.ai/api/webhooks/opensolar
+```
+
+```http
+x-ashlr-api-key:   ashlr_live_…
+x-ashlr-signature: sha256=…
+```
+
+```json
+{ "event": "proposal.accepted", "project_id": "opensolar-project-id" }
+```
+
+We pull the project from your OpenSolar org, normalize, and assemble the
+permit package. Returns the same `imported` shape as the [Aurora webhook](/api/webhooks/aurora).

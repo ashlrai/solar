@@ -1,0 +1,35 @@
+{
+  "slug": "ca-on-ottawa",
+  "name": "City of Ottawa",
+  "state": "ON",
+  "country": "CA",
+  "city": "Ottawa",
+  "population": 1017000,
+  "contacts": [{ "department": "Building Code Services", "portal_url": "https://ottawa.ca/en/planning-development-and-construction/building-permits" }],
+  "submission_channels": ["online_portal"],
+  "required_documents": ["application_form", "site_plan", "electrical_diagram_single_line", "module_datasheet", "inverter_datasheet", "structural_letter", "ecra_esa_notification"],
+  "fees": [{ "permit_type": "residential_pv", "amount_usd": 210, "notes": "CAD ~285" }],
+  "rules": [
+    {
+      "id": "ca-on-ott-001",
+      "permit_type": "residential_pv",
+      "category": "electrical",
+      "description": "ECRA/ESA notification required (OESC); Hydro Ottawa net metering application parallel.",
+      "severity": "blocking",
+      "source_url": "https://esasafe.com",
+      "retrieved_at": "2026-04-14"
+    },
+    {
+      "id": "ca-on-ott-002",
+      "permit_type": "residential_pv",
+      "category": "structural",
+      "description": "OBC snow (higher than Toronto, ~2.4 kPa) + P.Eng stamp.",
+      "severity": "blocking",
+      "source_url": "https://ottawa.ca",
+      "retrieved_at": "2026-04-14"
+    }
+  ],
+  "turnaround": [{ "permit_type": "residential_pv", "median_business_days": 15, "last_updated": "2026-04-14", "source": "internal_estimate" }],
+  "solarapp_plus_eligible": false,
+  "last_verified": "2026-04-14"
+}
