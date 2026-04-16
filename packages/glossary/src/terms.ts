@@ -9,7 +9,8 @@ export interface GlossaryTerm {
     | "process"
     | "incentive"
     | "equipment"
-    | "regulatory";
+    | "regulatory"
+    | "labeling";
   summary: string;
   body: string;
   related?: string[];
@@ -185,6 +186,58 @@ export const TERMS: GlossaryTerm[] = [
       "IRA restrictions on components sourced from specified foreign entities. Affects ITC eligibility + bonus adders.",
     body: "Post-IRA Treasury rules restrict material assistance from FEOCs (primarily China-linked). Projects claiming domestic-content bonus must trace attachment + mounting hardware. Our incentive optimizer flags FEOC-risk components based on BOM inputs and surfaces documentation the project needs.",
     related: ["itc", "macrs"],
+  },
+  {
+    slug: "supply-side-tap",
+    term: "Supply-side tap",
+    aka: ["line-side tap", "NEC 705.11"],
+    category: "code",
+    summary:
+      "An interconnection method that taps the utility service conductors ahead of the main breaker, sidestepping NEC 705.12's busbar limit.",
+    body: "When NEC 705.12's 120% rule pushes a project into a service upgrade, a supply-side tap (governed by NEC 705.11) is often cheaper. PV ties into the service entrance conductors before they reach the main breaker, so the busbar isn't loaded by both sources. Trade-offs: more involved utility coordination, additional disconnect, and a meter-can or tap-box adder. Our compliance engine flags supply-side as the path of least resistance when a load-side interconnection would require a service upgrade.",
+    related: ["nec-705-12", "nec-705-13-pcs"],
+    source_url: "https://www.nfpa.org/codes-and-standards/nfpa-70",
+  },
+  {
+    slug: "commercial-pv",
+    term: "Commercial PV",
+    aka: ["C&I solar", "non-residential PV"],
+    category: "process",
+    summary:
+      "Photovoltaic projects above ~25 kW DC or on non-residential occupancies, with stricter permitting + interconnection requirements.",
+    body: "We treat any PV project above 25 kW DC or on a non-residential building (office, warehouse, school, agriculture) as commercial. Compliance overlays kick in: PE-stamped single-line diagram (always blocking), utility load-impact study above 100 kW, transformer-coupled interconnection guidance above 250 kW, and explicit DC-to-AC ratio + 705.13 PCS documentation. Permit fees scale by tier: $1.2k / $3.5k / $9.5k / $18k.",
+    related: ["nec-705-13-pcs", "utility-load-study", "itc"],
+  },
+  {
+    slug: "utility-load-study",
+    term: "Utility load-impact study",
+    aka: ["impact study", "interconnection study"],
+    category: "interconnection",
+    summary:
+      "A utility-conducted analysis of how a proposed PV system affects feeder voltage, hosting capacity, and protection coordination.",
+    body: "For commercial installs above ~100 kW, most US utilities require a load-impact (or interconnection) study before they'll approve interconnection. Cost ranges $5–25k and turnaround 6–16 weeks; results may dictate equipment changes (smart inverter settings, anti-islanding, transformer upgrade). File the study request the same day as the AHJ permit — sequencing is the single biggest avoidable delay on commercial projects.",
+    related: ["commercial-pv", "nec-705-13-pcs"],
+  },
+  {
+    slug: "nec-690-56-c",
+    term: "NEC 690.56(C)",
+    aka: ["rapid shutdown placard"],
+    category: "labeling",
+    summary:
+      "Required service-entrance placard indicating the PV system has rapid shutdown — exact wording mandated.",
+    body: "NEC 690.56(C) prescribes the placard at the building's service entrance: black letters on yellow, specific phrasing per code cycle (2017 vs 2020 vs 2023). AHJs in CA, NY, and FL routinely reject submissions whose placard text doesn't match the adopted edition exactly. Our placard generator pulls the right text per the AHJ's adopted NEC cycle.",
+    related: ["rapid-shutdown", "placards"],
+    source_url: "https://www.nfpa.org/codes-and-standards/nfpa-70",
+  },
+  {
+    slug: "placards",
+    term: "Placards & labels",
+    aka: ["site labels"],
+    category: "labeling",
+    summary:
+      "On-equipment + at-service-entrance signage required by NEC + local fire code. Wording is jurisdiction-specific.",
+    body: "Every PV install ships a small library of placards: rapid-shutdown notice (NEC 690.56(C)), DC + AC disconnect labels (NEC 690.13/.17), max output rating, point-of-connection sticker, and AHJ-specific extras (Miami-Dade HVHZ wording, Austin Energy disconnect markings, NYC FDNY fire-access tags). Our PV-04 placard sheet generates them per the resolved AHJ.",
+    related: ["nec-690-56-c", "rapid-shutdown"],
   },
 ];
 
